@@ -1,0 +1,253 @@
+<!doctype html>
+
+<html>
+  <head>
+    
+<html lang="en">
+<head>
+
+    <!--ajuste de configurações da página-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>404 | Assistente de Laboratório</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
+
+    <!-- Icones para utilizar -->
+    <script src="https://kit.fontawesome.com/459082bb4a.js" crossorigin="anonymous"></script>
+
+    <!-- Script para renderizar equações -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
+    <!--meta tags para mecanismos de busca e indexação-->
+    <meta name="robots" content="index, follow">
+    <meta name="description" content=Página desenvolvida para mostrar a possibilidade de aplicação do algoritmo SymTree para Regressão Simbólica com baixo custo computacional. Essa ferramenta pode ser utilizada como auxiliar de laboratórios didáticos em que são feitos experimentos de mensuração para verificar relações vistas em sala de aula. A tecnologia utilizada é a linguagem JavaScript e, portanto, executa o algoritmo no próprio navegador do usuário. />
+    <meta name="author" content=guilherme.seidyo@gmail.com>
+    <meta name="keywords" content=/>
+    
+    <script>
+        $(document).ready(function(){
+
+          //Depois de carregar toda a página, rodar o script para atualizar as equações em latex
+          var math = document.getElementById("MathRes");
+          MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);   
+        })  
+    </script>
+
+    <style>
+        .body-background {
+            background: url("http://localhost:4000/laboratory-assistant/assets/images/bg.png") repeat center center fixed;
+        }
+        .content-title{
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            padding: 20px 0px 20px 0px;
+            border-bottom: 2px dashed #ddd;
+            border-top: 2px dashed #ddd;
+        }
+        .card-header .fa {
+            transition: .3s transform ease-in-out;
+        }
+        .card-header .collapsed .fa {
+            transform: rotate(90deg);
+        }
+        .green-navbar {
+            background-color: #fff;
+            border-bottom: 3px solid #47c9af !important;
+            box-shadow: 5px 5px 5px 5px rgba(71, 201, 175, 0.92);
+        }
+        .navbar-nav .nav-item.active .nav-link,
+        .navbar-nav .nav-item:hover .nav-link {
+            background-color: #47c9af;
+            color: #ffffff;
+            border-radius: 5px 5px 5px 5px;
+        }
+        html {
+            font-size: 16x;
+        }
+        @media screen and (min-width: 320px) {
+            html {
+                font-size: calc(14px + 10 * ((100vw - 320px) / 680));
+            }
+        }
+        @media screen and (min-width: 1000px) {
+            html {
+                font-size: 16px;
+            }
+        }
+        pre {
+            width: 100%;
+            padding: 1em;
+            overflow: auto;
+            overflow-y: hidden;
+            line-height: 20px;
+            background: #efefef;
+            border: 1px solid #777;
+            border-radius: 5px;
+        }
+        .MathJax_Display { 
+            text-align: center !important;
+            display: inline !important;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        html, body {
+            height: 100%;
+            margin: 0px;
+        }
+        .static:hover {
+            text-decoration: none !important;
+        }
+        @media (max-width: 1200px){
+            .nav-item > a{
+                text-align: center !important;
+            }
+            .nav-item {
+                padding-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<!--
+    Referências:
+    Colapses no menu inicial - https://disjfa.github.io/bootstrap-tricks/card-collapse-tricks/
+
+-->
+  </head>
+
+  <header>
+    <nav class="navbar fixed-top navbar-expand-xl navbar-light bg-light green-navbar">
+  <div class="container d-flex justify-content-between">
+
+      <a class="navbar-brand" href="http://localhost:4000/laboratory-assistant/index.html"><strong>Assistente</strong> de Laboratório</a>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+    
+          <li class="nav-item ">
+            <a class="nav-link" href="http://localhost:4000/laboratory-assistant/index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+    
+          
+            
+          
+            
+              <li class="nav-item ">
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/PGC.html"><i class="fas fa-graduation-cap"></i> PGC</a>
+              </li>
+            
+          
+            
+              <li class="nav-item ">
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/examples.html"><i class="fas fa-folder-open"></i> Exemplos</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="nav-item ">
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/study.html"><i class="fas fa-book"></i> Notas de estudo</a>
+              </li>
+            
+          
+        </ul>
+        <div class="navbar-nav ml-auto">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary disabled">
+              <input type="radio" name="options" id="option1" disabled><i class="fas fa-language"></i> Language
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off" selected> PT-BR
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> EN-US
+            </label>
+          </div>
+        </div>
+      </div>
+  </div>
+</nav>
+
+  </header>
+
+  <body class="body-background">
+    <div class="container" style="padding-top: 120px; padding-bottom: 60px">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title content-title text-center">Erro 404</h1>
+          <div style="padding-top: 40px">
+            <p>
+  Página não encontrada :(
+</p>
+          </div>
+          <div class="container">
+
+  <div class="text-justify">
+      <h1 class="text-center">Contato</h1>
+  </div>
+
+  <div class="content-text" style="padding-bottom: 0px !important;">
+
+      <div class="row">
+
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <p>
+              <strong>Orientador:</strong><br>
+              <i class="fas fa-user-circle"></i> Prof. Dr. Fabrício Olivetti de França<br>
+              <i class="fas fa-envelope"></i> <em>folivetti@ufabc.edu.br</em>
+            </p>
+        </div>
+
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <p>
+              <strong>Discente:</strong><br>
+              <i class="fas fa-user-circle"></i> Guilherme Seidyo Imai Aldeia<br>
+              <i class="fas fa-envelope"></i> <em>guilherme.aldeia@aluno.ufabc.edu.br</em>
+            </p>
+        </div>
+
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <p>
+              <i class="fas fa-university"></i> <strong>Universidade Federal do ABC</strong><br>
+              <i class="fas fa-globe-americas"></i> Avenida dos Estados, 5001 - Bairro Santa Terezinha, Santo André - CEP: 09210-580<br>
+              <i class="fas fa-phone"></i> +55 11 4996-0001
+            </p>
+        </div>
+
+      </div>
+
+      <p class="text-center">
+          <img class="img-fluid" src="http://localhost:4000/laboratory-assistant/assets/images/logotipo-ufabc-extenso.png"></img>
+      </p>
+
+      <p class="text-center">&copy; Copyright 2019 Guilherme Seidyo Imai Aldeia</p>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <footer>
+  </footer>
+</html>

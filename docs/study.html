@@ -1,0 +1,183 @@
+---
+title: 'Notas de estudo'
+page_title: 'Notas de estudo'
+layout: 'default'
+icon: 'fas fa-book'
+language: 'pt-br'
+---
+
+<p>
+   Nessa página o problema da regressão será apresentado, de forma a contextualizar a ferramenta desenvolvida e seu uso. Para uma leitura mais aprofundada, uma série de trabalhos subsequentes são citados ao longo do texto (alguns em inglês), e ajudam a complementar tudo que foi discutido.
+</p>
+
+<p>
+   Essa ferramenta foi o primeiro projeto desenvolvido por Guilherme Aldeia sob orientação do Prof. Dr. Fabrício Olivetti de França, com início em maio/2017 e finalização em meados de agosto/2018. A página foi revisitada e criada do zero novamente em dezembro/2019, para refatoração do código seguindo boas práticas aprendidas durante a jornada.
+</p>
+
+<p>
+   Com início em setembro de 2018, ainda sob orientação de Fabrício, Guilherme desenvolveu seu Projeto de Graduação em Computação no mesmo tema, onde estudou mais a fundo uma proposta de um algoritmo evolutivo utilizando a estrutura IT, e o relatório pode ser <a href="{{ site.url }}{{ site.baseurl }}/PGC.html">encontrado aqui</a>.
+</p>
+
+<!--O problema da regressão-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+   <h5 class="card-header">
+      <a data-toggle="collapse" href="#regression-problem-body" aria-expanded="true" aria-controls="regression-problem-body" id="regression-problem-header" class="d-block">
+         <i class="fa fa-chevron-down" style="float: right"></i>
+         O problema da regressão
+      </a>
+   </h5>
+   <div id="regression-problem-body" class="show collapse" aria-labelledby="regression-problem-header">
+      <div class="card-body">
+         <p>
+            Regressão é o nome dado a processos estatísticos que tem como objetivo encontrar uma relação entre um conjunto de variáveis, descrevendo essa relação através de uma função.
+         </p>
+
+         <p>
+            Um conjunto de variáveis tem a forma \(\small \{\mathbf{X}, \mathbf{y}\} \), onde \(\small \mathbf{X} = \{\mathbf{x_{1}}, \mathbf{x_{2}, \ldots, \mathbf{x_{n}}}\} \) é um conjunto de vetores, onde cada um de seus elementos corresponde às variáveis do problema para uma amostra, e essas variáveis são chamadas de variáveis explicativas; e \(\small \mathbf{y} \) é um conjunto de escalares, onde cada elemento é o valor obtido ao aplicar uma função \(\small \widehat{f}(\mathbf{x})=y \) sobre as variáveis explicativas, e é chamada de variável alvo. Partimos da suposição de que \(\small y\) depende de \(\small \mathbf{x}\). Um conjunto composto por várias amostras é chamado de base de dados (em inglês, <em>dataset</em>):
+         </p>
+         
+         $$\small \{ (\mathbf{x_{1}}, y_{1}), (\mathbf{x_{2}}, y_{2}), \ldots, (\mathbf{x_{d}}, y_{d}) \} .$$
+   
+         <p>
+            A regressão linear é um método de regressão amplamente conhecido, onde o palpite é de que a função que se ajusta ao conjunto de variáveis é uma composição linear de parâmetros. Em uma regressão linear simples ainda pode existir um termo independente.
+         </p>
+         
+         <p>
+            Os algoritmos desenvolvidos neste site funcionam construindo expressões lineares, mas cada algoritmo realiza esse processo utilizando uma abordagem diferente. Estes detalhes serão apresentados mais a frente.
+         </p>
+   
+         <p>
+            Dado uma base de dados que contém \(\small d\) amostras, onde cada amostra possui \(\small n\) variáveis explicativas, uma forma possível de realizar a regressão é ajustar uma reta \(\small \widehat{r}(\mathbf{x})\), onde seus coeficientes são escolhidos com o valor que mais minimiza o erro entre os valores que essa reta prediz para um determinado \(\small \mathbf{x}_{i}\) e a variável alvo correspondente \(\small y_{i}\) - esse método é conhecido como <strong>regressão linear</strong>, e é provavelmente o método de regressão mais utilizado nos problemas das mais diversas áreas. Sendo uma reta definida por um conjunto de coeficientes que multiplicam cada variável, mais um <strong>coeficiente livre</strong> que representa o intercepto dessa reta, a regressão irá buscar pelos valores para \(\small \omega_{0}, \omega_{1}, \ldots, \omega_{n}\) que minimizam o erro da reta em relação aos pontos conhecidos:
+         </p>
+   
+         $$ \small\widehat{y} = \widehat{r}(\mathbf{x}) = \omega_{0} + \omega_{1} x_{1} + \omega_{2} x_{2} + \ldots + \omega_{n} x_{n}.$$
+
+         <p>
+            Apesar de ter várias vantagens, essa forma de regressão falha quando os dados não se comportam de maneira linear - nesses casos, é preciso apelar para métodos mais sofisticados. Os modelos de regressão são classificados em paramétricos (que só ajustam os coeficientes livres de uma equação pré-determinada) ou não paramétricos (que ajustam tanto os coeficientes livres quando <strong>a própria forma da função</strong>).
+         </p>
+
+         <p>
+            Um dos modelos de regressão não paramétrica muito conhecido é a regressão simbólica, que busca por funções matemáticas e ajusta seus coeficientes de forma automática, não tendo uma função pré determinada para tentar descrever o comportamento dos dados na base de dados. Essa técnica é comumente implementada por meios da programação genética, que cria e manipula árvores de expressões e, através da simulação de mecanismos inspirados na teoria da evolução, faz com que as soluções criadas estejam competindo entre si para "sobreviver". Ou seja, a programação genética simula o processo evolutivo por meio de recursos computacionais, partindo da crença de que a evolução é um mecanismo que favorece indivíduos mais aptos e, eventualmente, uma simulação desses processos pode ajudar a encontrar uma solução para o problema.
+         </p>
+      </div>
+   </div>
+</div>
+
+<!--A estrutura de dados IT-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+   <h5 class="card-header">
+      <a data-toggle="collapse" href="#estrutura-IT-body" aria-expanded="true" aria-controls="estrutura-IT-body" id="estrutura-IT-header" class="d-block">
+         <i class="fa fa-chevron-down" style="float: right"></i>
+         A estrutura de dados IT
+      </a>
+   </h5>
+   <div id="estrutura-IT-body" class="show collapse" aria-labelledby="estrutura-IT-header">
+      <div class="card-body">
+
+         <p>
+            Na computação, é comum utilizarmos estruturas de dados em programas para representar de uma forma conveniente os dados que estamos manipulando. A forma mais comum de implementar a regressão simbólica é por meio de árvores de expressão, mas isso pode ser feito de outras maneiras.
+         </p>
+
+         <p>
+            Em particular, a representação por árvores não é muito conveniente pois apresenta alguns problemas que dificultam a tarefa de encontrar uma solução, pois permitem a existência de redundâncias, e as árvores são frágeis de forma que uma pequena modificação nelas pode desencadear uma completa alteração no comportamento da função final (<a href="https://folivetti.github.io/files/InfoScienceITSR.pdf">esse artigo</a> apresenta esses problemas e propõe uma nova representação, que foi utilizada para desenvolver os algoritmos dessa página).
+         </p>
+
+         <p>
+            Como forma alternativa, as implementações nessa página para regressão simbólica se basearam em uma representação diferente do uso em árvores - foi utilizada uma estrutura proposta em 2018 no artigo <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf"><em>A Greedy Search Tree Heuristic for Symbolic Regression</em></a>, chamada de <strong>Interação-Transformação</strong> (abreviada como IT).
+         </p>
+
+         <p>
+            A estrutura de dados IT guarda internamente um conjunto de expoentes e uma operação unária:
+         </p> 
+
+         $$\small IT = (\{e_{1}, e_{2}, \ldots, e_{n}\}, op),$$
+   
+         <p>
+            onde o conjunto de expoentes tem sempre o mesmo tamanho de \(\small \mathbf{x}_{i}\). Na implementação desta página, as possíveis funções que podem ser utilizadas no lugar da operação são:
+         </p>
+               
+         <p class="text-center">
+            <em>identidade, seno, cosseno, tangente, valor absoluto, raiz quadrada, exponencial e logaritmo</em>
+         </p>
+   
+         <p>
+            Um único termo IT representa um "bloco de construção" elementar para ser utilizado pelos algoritmos na busca por funções. Os algoritmos irão, deforma iterativa, aumentar o tamanho da expressão IT através da combinação linear de vários termos IT. Para calcular o valor de uma expressão IT para um dado \(\small \mathbf{x}_{i}\), o seguinte processo é repetido para cada termo IT que compõe a expressão final: <em>i)</em> eleva-se cada um dos elementos de \(\small \mathbf{x}_{i}\) ao seu respectivo expoente \(\small e_{i}\) (pertencente ao conjunto interno de expoentes); <em>ii)</em> todos os valores obtidos são multiplicados; e, por fim, <em>iii)</em> a operação da estrutura é aplicada em cima do valor obtido:
+         </p>
+   
+         $$\small valor IT = op(\prod_{i=1}^{n} x_{i}^{e_{i}}) .$$
+
+         <p>
+            Então, calculado o valor para cada termo IT, esses podem ser combinados de forma linear realizando uma soma dos resultados obtidos, de forma que essa soma é ponderada de acordo com um coeficiente (que é calculado utilizando uma regressão linear)
+         </p>
+   
+         <p>
+            A estrutura de dados IT possui limitações que impede que algumas funções sejam criadas. Todos os algoritmos aqui implementados se baseiam nessa estrutura de dados, e suas expressões são compostas somando várias estruturas IT. Tome como exemplo a estrutura IT para um problema de 3 variáveis, e sua correspondente forma matemática:
+         </p>
+   
+         $$\small IT_{1} = (\{-2, 1, 0\}, sin) \rightarrow \widehat{f}_{IT}(x, y, z) = sin ( \frac{y}{x^{2}} ). $$ 
+   
+         <p>
+            O algoritmo compôe uma expressão somando várias estruturas IT, onde cada uma tem um coeficiente. Isso quer dizer que toda expressão será da forma:
+         </p>
+   
+         $$\small \widehat{f}(x_{1}, x_{2}, \ldots, x_{n}) = \omega_{1}IT_{1} + \omega_{2}IT_{2} + \ldots + \omega_{m}IT_{m} $$
+   
+         <p>
+            Cada estrutura IT representa um termo. Uma possível equação que o algoritmo pode encontrar é:
+         </p>
+                           
+         $$\small \widehat{f}(x_{0}, x_{1}) =  sin(x_{0}) + 2\cdot cos(x_{1}^{2})$$
+         
+         <p>
+            Mas perceba que a expressão:
+         </p>
+               
+         $$\small \widehat{f}(x_{0}, x_{1}) = sin(x_{0} + cos(x_{1})) $$
+         
+         <p>
+            nunca será formada, pois é como se tivéssemos uma estrutura IT contendo outra estrutura IT. Por não ser possível formar a expressão, sua solução exata nunca será encontrada, embora possa existir alguma outra expressão equivalente ou que minimize o erro e consequentemente apresente um bom score.
+         </p>
+
+         <p>
+            De um ponto de vista, isso limita o campo de busca, que ao contrário do algoritmo genético, não tem restrições na forma das expressões. Mas, por outro lado, são improváveis os casos onde a equação que rege os dados de entrada possa ter várias funções encadeadas:
+         </p>
+   
+         $$\small \widehat{f}(x_{0}, x_{1}) = sin(x_{0} + cos( 2\cdot tan(x_{1})) $$
+         
+         <p>
+            Além disso, ainda evita que expressões extremamente complexas sejam criadas e eventualmente selecionadas por acabarem se ajustando bem aos pontos de entrada. Isso garante uma maior simplicidade nos resultados.
+         </p>
+      </div>
+   </div>
+</div>
+
+<!--Algoritmos implementados-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+   <h5 class="card-header">
+      <a data-toggle="collapse" href="#algoritmos-body" aria-expanded="true" aria-controls="algoritmos-body" id="algoritmos-header" class="d-block">
+         <i class="fa fa-chevron-down" style="float: right"></i>
+         Algoritmos implementados
+      </a>
+   </h5>
+   <div id="algoritmos-body" class="show collapse" aria-labelledby="algoritmos-header">
+      <div class="card-body">
+
+         <p>
+            No total, foram implementados 3 algoritmos diferentes, baseando-se na representação Interação-Transformação:
+         </p>
+
+         <p>
+            <strong>Algoritmo SymTree:</strong>
+         </p>
+
+         <p>
+            <strong>Algoritmo IT-LS:</strong>
+         </p>
+
+         <p>
+            <strong>Algoritmo IT-ES:</strong>
+         </p>
+      
+      </div>
+   </div>
+</div>

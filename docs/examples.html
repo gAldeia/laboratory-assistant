@@ -1,0 +1,136 @@
+---
+title: 'Exemplos'
+page_title: 'Exemplos'
+layout: 'default'
+icon: 'fas fa-folder-open'
+language: 'pt-br'
+---
+
+<!--Equações da física e engenharia-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+   <h5 class="card-header">
+      <a data-toggle="collapse" href="#eq-representaveis-body" aria-expanded="true" aria-controls="eq-representaveis-body" id="eq-representaveis-header" class="d-block">
+         <i class="fa fa-chevron-down" style="float: right"></i>
+         Equações da física e engenharia
+      </a>
+   </h5>
+   <div id="eq-representaveis-body" class="show collapse" aria-labelledby="eq-representaveis-header">
+      <div class="card-body">
+         <div class="container">
+            <div class="row">     
+               {% assign possible = site.data.tables-info | where: "category", "possible" %} 
+               {% for table in possible%}
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                     
+                     {% assign table-data = site.data.tables[table.csv-file] %}
+
+                     <div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+                        <h5 class="card-header">
+                           <a data-toggle="collapse" href="#{{table.csv-file}}-body" aria-expanded="true" aria-controls="{{table.csv-file}}-body" id="{{table.csv-file}}-header" class="collapsed d-block text-center">
+                              <i class="fa fa-chevron-down" style="float: right"></i>
+                              {{table.caption}}
+                           </a>
+                        </h5>
+                        <div id="{{table.csv-file}}-body" class="collapse" aria-labelledby="{{table.csv-file}}-header">
+                           <div class="card-body">
+                              {{table.equation}}
+                              <table border="1" style="width: 100%" id="{{table.csv-file}}-content">
+                                 <tr align="center">
+                                    {% for col in table.cols %}
+                                       <th>{{col}}</th>
+                                    {% endfor %}
+                                 </tr>
+                                 {% for line in table-data %}
+                                    <tr align="center">
+                                       {% for col in table.cols %}
+                                          <td>{{line[col]}}</td>
+                                       {% endfor %}
+                                    </tr>
+                                 {% endfor %}
+                                 <caption class='text-center'>
+                                    <button class="btn btn-secondary" onclick="set_example('{{ site.url }}{{ site.baseurl }}{{ site.tab_folder }}{{table.csv-file}}.csv')">
+                                       <i class="fas fa-file-export"></i> Escolher esse exemplo
+                                    </button>
+                                 </caption>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                 </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!--Equações não representáveis-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+   <h5 class="card-header">
+      <a data-toggle="collapse" href="#eq-nao-representaveis-body" aria-expanded="true" aria-controls="eq-nao-representaveis-body" id="eq-nao-representaveis-header" class="d-block">
+         <i class="fa fa-chevron-down" style="float: right"></i>
+         Equações não representáveis
+      </a>
+   </h5>
+   <div id="eq-nao-representaveis-body" class="show collapse" aria-labelledby="eq-nao-representaveis-header">
+      <div class="card-body">
+         <div class="container">
+            <div class="row">     
+               {% assign impossible = site.data.tables-info | where: "category", "impossible" %} 
+               {% for table in impossible%}
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                     
+                     {% assign table-data = site.data.tables[table.csv-file] %}
+
+                     <div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+                        <h5 class="card-header">
+                           <a data-toggle="collapse" href="#{{table.csv-file}}-body" aria-expanded="true" aria-controls="{{table.csv-file}}-body" id="{{table.csv-file}}-header" class="collapsed d-block text-center">
+                              <i class="fa fa-chevron-down" style="float: right"></i>
+                              {{table.caption}}
+                           </a>
+                        </h5>
+                        <div id="{{table.csv-file}}-body" class="collapse" aria-labelledby="{{table.csv-file}}-header">
+                           <div class="card-body">
+                              {{table.equation}}
+                              <table border="1" style="width: 100%" id="{{table.csv-file}}-content">
+                                 <tr align="center">
+                                    {% for col in table.cols %}
+                                       <th>{{col}}</th>
+                                    {% endfor %}
+                                 </tr>
+                                 {% for line in table-data %}
+                                    <tr align="center">
+                                       {% for col in table.cols %}
+                                          <td>{{line[col]}}</td>
+                                       {% endfor %}
+                                    </tr>
+                                 {% endfor %}
+                                 <caption class='text-center'>
+                                  <button class="btn btn-secondary" onclick="set_example('{{ site.url }}{{ site.baseurl }}{{ site.tab_folder }}{{table.csv-file}}.csv')">
+                                     <i class="fas fa-file-export"></i> Escolher esse exemplo
+                                  </button>
+                               </caption>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                 </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script>
+   function set_example(element){
+      $.ajax({
+         type     : "GET",
+         url      : element,
+         dataType : "text",
+         success  : function(data) {
+               localStorage.setItem("chosen-example", data);
+         }
+      });
+}
+</script>

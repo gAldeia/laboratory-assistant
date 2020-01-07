@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html>
+  <head>
+    {% include head.html %}
+  </head>
+
+  <header>
+    {% include navigation.html %}
+  </header>
+
+  <body class="body-background">
+    <div class="container" style="padding-top: 120px; padding-bottom: 60px">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title content-title text-center">{{ page.title }}</h1>
+          <div style="padding-top: 40px">
+            {{ content }}
+          </div>
+          {% include footer.html %}
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <footer>
+  </footer>
+</html>

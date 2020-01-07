@@ -1,0 +1,125 @@
+
+<html lang="en">
+<head>
+
+    <!--ajuste de configurações da página-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{{page.page_title}} | {{site.title}}</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
+
+    <!-- Icones para utilizar -->
+    <script src="https://kit.fontawesome.com/459082bb4a.js" crossorigin="anonymous"></script>
+
+    <!-- Script para renderizar equações -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
+    <!--meta tags para mecanismos de busca e indexação-->
+    <meta name="robots" content="index, follow">
+    <meta name="description" content={{site.description}}/>
+    <meta name="author" content={{site.email}}>
+    <meta name="keywords" content={{site.keywords}}/>
+    
+    <script>
+        $(document).ready(function(){
+
+          //Depois de carregar toda a página, rodar o script para atualizar as equações em latex
+          var math = document.getElementById("MathRes");
+          MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);   
+        })  
+    </script>
+
+    <style>
+        .body-background {
+            background: url("{{ site.url }}{{ site.baseurl }}{{ site.img_folder }}bg.png") repeat center center fixed;
+        }
+        .content-title{
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            padding: 20px 0px 20px 0px;
+            border-bottom: 2px dashed #ddd;
+            border-top: 2px dashed #ddd;
+        }
+        .card-header .fa {
+            transition: .3s transform ease-in-out;
+        }
+        .card-header .collapsed .fa {
+            transform: rotate(90deg);
+        }
+        .green-navbar {
+            background-color: #fff;
+            border-bottom: 3px solid #47c9af !important;
+            box-shadow: 5px 5px 5px 5px rgba(71, 201, 175, 0.92);
+        }
+        .navbar-nav .nav-item.active .nav-link,
+        .navbar-nav .nav-item:hover .nav-link {
+            background-color: #47c9af;
+            color: #ffffff;
+            border-radius: 5px 5px 5px 5px;
+        }
+        html {
+            font-size: 16x;
+        }
+        @media screen and (min-width: 320px) {
+            html {
+                font-size: calc(14px + 10 * ((100vw - 320px) / 680));
+            }
+        }
+        @media screen and (min-width: 1000px) {
+            html {
+                font-size: 16px;
+            }
+        }
+        pre {
+            width: 100%;
+            padding: 1em;
+            overflow: auto;
+            overflow-y: hidden;
+            line-height: 20px;
+            background: #efefef;
+            border: 1px solid #777;
+            border-radius: 5px;
+        }
+        .MathJax_Display { 
+            text-align: center !important;
+            display: inline !important;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        html, body {
+            height: 100%;
+            margin: 0px;
+        }
+        .static:hover {
+            text-decoration: none !important;
+        }
+        @media (max-width: 1200px){
+            .nav-item > a{
+                text-align: center !important;
+            }
+            .nav-item {
+                padding-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<!--
+    Referências:
+    Colapses no menu inicial - https://disjfa.github.io/bootstrap-tricks/card-collapse-tricks/
+
+-->

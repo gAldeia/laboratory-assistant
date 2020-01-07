@@ -1,0 +1,20 @@
+title: "Assistente de Laboratório"
+email: guilherme.seidyo@gmail.com
+description: >- 
+  Página desenvolvida para mostrar a possibilidade de aplicação do algoritmo SymTree para Regressão Simbólica com baixo custo computacional.
+  Essa ferramenta pode ser utilizada como auxiliar de laboratórios didáticos em que são feitos experimentos de mensuração para verificar relações vistas em sala de aula.
+  A tecnologia utilizada é a linguagem JavaScript e, portanto, executa o algoritmo no próprio navegador do usuário. 
+baseurl: "/laboratory-assistant" 
+url: "https://galdeia.github.io" 
+github_username:  gAldeia
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+css_folder:  '/assets/stylesheets/'
+js_folder:   '/assets/javascripts/'
+img_folder:  '/assets/images/'
+tab_folder:  '/assets/tables/'
+docs_folder: '/assets/documents/'
