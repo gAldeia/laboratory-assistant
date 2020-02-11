@@ -1,4 +1,5 @@
 title: "Assistente de Laboratório"
+title-en: "Laboratory Assistant"
 email: guilherme.seidyo@gmail.com
 description: >- 
   Página desenvolvida para mostrar a possibilidade de aplicação do algoritmo SymTree para Regressão Simbólica com baixo custo computacional.

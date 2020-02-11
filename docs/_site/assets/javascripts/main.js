@@ -30,7 +30,7 @@ function performRegression(algorithm){
 function runRegression(algorithm){
 
     if (Xtemp.length==0){
-        throw showMessage("results-notification", "Você não enviou nenhuma entrada de dados para o site!");
+        throw showMessage("results-notification", "Você não enviou nenhuma entrada de dados para o site! <br><small><i>You have not submitted any data to the site!</i></small>");
     }
     
     //showMessage("results-notification", "clear");
@@ -121,18 +121,18 @@ function runRegression(algorithm){
     $('#results-log').html("$$" + exp_latex + "$$");
     $('#results-log').append("<pre></pre>");
     
-    $('#results-log > pre').append('Algoritmo:              ' + algorithm + '\n');
-    $('#results-log > pre').append('Expressão simplificada: ' + exp_str + '\n');
-    $('#results-log > pre').append('Tempo de execução:      ' + elapsedTime + ' (ms)\n');
-    $('#results-log > pre').append('Score final:            ' + expression.score + '\n');
-    $('#results-log > pre').append("Configurações:\n");
+    $('#results-log > pre').append('Algoritmo (algorithm):                          ' + algorithm + '\n');
+    $('#results-log > pre').append('Expressão simplificada (simplified expression): ' + exp_str + '\n');
+    $('#results-log > pre').append('Tempo de execução (execution time):             ' + elapsedTime + ' (ms)\n');
+    $('#results-log > pre').append('Score final (final score):                      ' + expression.score + '\n');
+    $('#results-log > pre').append("Configurações (configurations):                 \n");
 
     for(let i in configuration) {
         $('#results-log > pre').append("\t" + i + " = " + configuration[i] + '\n');
     }
 
-    $("#graphics-control").html("<p><strong> Termos</strong>:</p><form id='terms'></form>");
-    $("#graphics-control").append("<p><strong> Variáveis</strong>:</p><form id='vars'></form>");
+    $("#graphics-control").html("<p><strong> Termos</strong> <small><i> (Terms)</i></small>:</p><form id='terms'></form>");
+    $("#graphics-control").append("<p><strong> Variáveis</strong> <small><i> (Variables)</i></small>:</p><form id='vars'></form>");
 
     printIT_latex(expression, join=false).forEach(function(term, tindex){
         labels.forEach(function(label, lindex){
@@ -173,7 +173,7 @@ function get_composed_expr(){
     });
 
     if (choosen.length==0)
-        throw showMessage("results-notification", "Você não selecionou nenhum termo para compor uma expressão!");
+        throw showMessage("results-notification", "Você não selecionou nenhum termo para compor uma expressão! <br><small><i>You have not selected any terms to compose an expression!</i></small>");
 
     let withSelected = choosen.reduce((newIT, term) => composeIT(newIT, term), {
         terms: [],
@@ -198,7 +198,7 @@ function get_composed_expr(){
     let score = 1/(1 + MAE);
 
 
-    $("#func-latex").html("<hr><p class='text-center'><strong>Função composta</strong> (score: "+ (isFinite(score) ? score : 0.0) +")</p>");
+    $("#func-latex").html("<hr><p class='text-center'><strong>Expressão</strong><small><i> (Expression)</i></small><br>(score: "+ (isFinite(score) ? score : 0.0) +")</p>");
     $("#func-latex").append("<p>$$" + exp_latex + "$$</p>");
     
     MathJax.Hub.Queue([ "Typeset", MathJax.Hub, $("#func-latex")[0] ]);
@@ -244,9 +244,9 @@ function update_plot(){
       };
 
     var layout = { 
-        title    : '<b>Valor predito versus valor real</b>',
-        yaxis    : {title: "Predito"},
-        xaxis    : {title: "Real"},
+        title    : '<b>Valor predito versus valor real</b> <br><i>Predicted versus real</i>',
+        yaxis    : {title: "Predito <i>(Predicted)</i>"},
+        xaxis    : {title: "Real <i>(Truth)</i>"},
         autosize : true,
         margin   : {
                        l   : 50,
@@ -310,9 +310,9 @@ function update_variable_plot(){
     };
 
     var layout = { 
-        title    : '<b>Valor predito versus valor da variável</b>',
-        yaxis    : {title: "Predito"},
-        xaxis    : {title: "Variável selecionada"},
+        title    : '<b>Valor predito versus valor da variável</b> <br><i>Predicted versus variable value</i>',
+        yaxis    : {title: "Predito <i>(Predicted)</i>"},
+        xaxis    : {title: "Variável selecionada <i>(Selected variable)</i>"},
         autosize : true,
         margin   : {
                       l: 50,

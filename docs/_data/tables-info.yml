@@ -1,123 +1,142 @@
-- caption:  'Variação de pressão vertical num fluido'
-  equation: '$$\Delta P = \rho \cdot g_{m/s} \cdot \Delta h$$'
-  csv-file: 'variacao-pressao-vertical'
-  cols:     ['ρ', 'Δh', 'ΔP']
-  category: 'possible'
-
-- caption:  'Equivalência de massa e energia'
-  equation: '$$E = m \cdot c^{2}$$'
-  csv-file: 'equivalencia-massa-energia'
-  cols:     ['m', 'E']
-  category: 'possible'
-
-- caption:  'Momento de Inércia em um retângulo'
-  equation: '$$I_{x} = \frac{1}{12} \cdot b \cdot h^{3}$$'
-  csv-file: 'momento-inercia-retangulo'
-  cols:     ['b', 'h', 'Ix']
-  category: 'possible'
-
-- caption:  'Lei de Hooke'
-  equation: '$$F = k \cdot \Delta l$$'
-  csv-file: 'lei-hooke'
-  cols:     ['k', 'Δl', 'F']
-  category: 'possible'
-
-- caption:  'Área de um retângulo'
-  equation: '$$A = b \cdot h$$'
-  csv-file: 'area-retangulo'
-  cols:     ['b', 'h', 'A']
-  category: 'possible'
-
-- caption:  'Trabalho'
-  equation: '$$W = F \cdot \Delta s \cdot cos(\Theta)$$'
-  csv-file: 'trabalho-cos-theta'
-  cols:     ['F', 'Δs', 'cos(Θ)', 'W']
-  category: 'possible'
-
-- caption:  'Lei dos gases ideais'
-  equation: '$$P = \frac{n \cdot R \cdot T}{v}$$'
-  csv-file: 'gases-ideais'
-  cols:     ['n', 'T', 'v', 'P']
-  category: 'possible'
-
-- caption:  'Período pendular'
-  equation: '$$T = 2 \cdot \pi \cdot \frac{L}{g}$$'
-  csv-file: 'periodo-pendular'
-  cols:     ['L', 'T']
-  category: 'possible'
-
-- caption:  'Média aritmética simples'
-  equation: '$$M = \frac{1}{n} \cdot \sum_{i=1}^{n} x_{i}$$'
-  csv-file: 'media-aritmetica'
-  cols:     ['x1', 'x2', 'x3', 'm']
-  category: 'possible'
-
-- caption:  'Área superficial de uma esfera'
-  equation: '$$A = 4 \cdot \pi \cdot r^{2}$$'
-  csv-file: 'area-superficie-esfera'
-  cols:     ['r', 'A']
-  category: 'possible'
-
-- caption:  'Área superficial de um cilindro'
-  equation: '$$A = 2 \cdot \pi \cdot r^{2} + 2 \cdot pi \cdot r \cdot h$$'
-  csv-file: 'area-superficie-cilindro'
-  cols:     ['r', 'h', 'A']
-  category: 'possible'
-
-- caption:  'Energia potencial elástica'
-  equation: '$$E = \frac{ k \Delta l^{2}}{2}$$'
-  csv-file: 'energia-pot-elastica'
-  cols:     ['k', 'Δl', 'E']
-  category: 'possible'
-
-- caption:  'Densidade'
-  equation: '$$\rho = \frac{m}{V}$$'
-  csv-file: 'densidade'
-  cols:     ['m', 'V', 'ρ']
-  category: 'possible'
-
-- caption:  'Intensidade sonora'
-  equation: '$$ \beta = 10 dB \cdot log(\frac{I}{I_{0}})$$'
-  csv-file: 'intensidade-sonora'
-  cols:     ['I', 'I0', 'β']
-  category: 'possible'
-
-
-
-
-- caption:  'Lei de Ohm'
-  equation: '$$ R_{t} = \frac{1}{\frac{1}{R_{1}} + \frac{1}{R_{2}}}$$'
-  csv-file: 'lei-de-ohm'
-  cols:     ['R1', 'R2', 'Rt']
-  category: 'impossible'
-
-- caption:  'Teorema de Pitágoras'
-  equation: '$$ c = \sqrt{a^{2} + b^{2}}$$'
-  csv-file: 'pitagoras'
-  cols:     ['a', 'b', 'c']
-  category: 'impossible'
-
-- caption:  'Trabalho'
-  equation: '$$ W = F \cdot \Delta s \cdot cos(\Theta)$$'
-  csv-file: 'trabalho-theta'
-  cols:     ['F', 'Δs', 'Θ', 'W']
-  category: 'impossible'
-
-- caption:  'Fórmula de Bhaskara'
-  equation: '$$ x_{0} = \frac{ -b - \sqrt{b^{2} - 4 \cdot a \cdot c} }{2 \cdot a}$$'
-  csv-file: 'bhaskara'
-  cols:     ['a', 'b', 'c', 'x0']
-  category: 'impossible'
-
-- caption:  'Excentricidade da elipse'
-  equation: '$$ e = \sqrt{1 - \frac{b^{2}}{a^{2}}}$$'
-  csv-file: 'excentricidade-elipse'
-  cols:     ['a', 'b', 'e']
-  category: 'impossible'
-
-- caption:  'Dilatação do tempo'
-  equation: '$$ \Delta T = \frac{\Delta t}{ \sqrt{ 1 - \frac{v^{2}}{c^{2}} } } $$'
-  csv-file: 'dilatacao-tempo'
-  cols:     ['Δt', 'v', 'ΔT']
-  category: 'impossible'
-
+- caption:   'Variação de pressão vertical num fluido'
+  captionEN: 'Variation of vertical pressure in a fluid'
+  equation:  '$$\Delta P = \rho \cdot g_{m/s} \cdot \Delta h$$'
+  csv-file:  'variacao-pressao-vertical'
+  cols:      ['ρ', 'Δh', 'ΔP']
+  category:  'possible'
+ 
+- caption:   'Equivalência de massa e energia'
+  captionEN: 'Mass-energy equivalence'
+  equation:  '$$E = m \cdot c^{2}$$'
+  csv-file:  'equivalencia-massa-energia'
+  cols:      ['m', 'E']
+  category:  'possible'
+ 
+- caption:   'Momento de Inércia em um retângulo'
+  captionEN: 'moment of inertia in a rectangle'
+  equation:  '$$I_{x} = \frac{1}{12} \cdot b \cdot h^{3}$$'
+  csv-file:  'momento-inercia-retangulo'
+  cols:      ['b', 'h', 'Ix']
+  category:  'possible'
+ 
+- caption:   'Lei de Hooke'
+  captionEN: 'Hooke law'
+  equation:  '$$F = k \cdot \Delta l$$'
+  csv-file:  'lei-hooke'
+  cols:      ['k', 'Δl', 'F']
+  category:  'possible'
+ 
+- caption:   'Área de um retângulo'
+  captionEN: 'Rectangle area'
+  equation:  '$$A = b \cdot h$$'
+  csv-file:  'area-retangulo'
+  cols:      ['b', 'h', 'A']
+  category:  'possible'
+ 
+- caption:   'Trabalho'
+  captionEN: 'Work'
+  equation:  '$$W = F \cdot \Delta s \cdot cos(\Theta)$$'
+  csv-file:  'trabalho-cos-theta'
+  cols:      ['F', 'Δs', 'cos(Θ)', 'W']
+  category:  'possible'
+ 
+- caption:   'Lei dos gases ideais'
+  captionEN: 'Ideal gas law'
+  equation:  '$$P = \frac{n \cdot R \cdot T}{v}$$'
+  csv-file:  'gases-ideais'
+  cols:      ['n', 'T', 'v', 'P']
+  category:  'possible'
+ 
+- caption:   'Período pendular'
+  captionEN: 'Pendular period'
+  equation:  '$$T = 2 \cdot \pi \cdot \frac{L}{g}$$'
+  csv-file:  'periodo-pendular'
+  cols:      ['L', 'T']
+  category:  'possible'
+ 
+- caption:   'Média aritmética simples'
+  captionEN: 'Simple arithmetic mean'
+  equation:  '$$M = \frac{1}{n} \cdot \sum_{i=1}^{n} x_{i}$$'
+  csv-file:  'media-aritmetica'
+  cols:      ['x1', 'x2', 'x3', 'm']
+  category:  'possible'
+ 
+- caption:   'Área superficial de uma esfera'
+  captionEN: 'Surface area of a sphere'
+  equation:  '$$A = 4 \cdot \pi \cdot r^{2}$$'
+  csv-file:  'area-superficie-esfera'
+  cols:      ['r', 'A']
+  category:  'possible'
+ 
+- caption:   'Área superficial de um cilindro'
+  captionEN: 'Surface area of a cylinder'
+  equation:  '$$A = 2 \cdot \pi \cdot r^{2} + 2 \cdot pi \cdot r \cdot h$$'
+  csv-file:  'area-superficie-cilindro'
+  cols:      ['r', 'h', 'A']
+  category:  'possible'
+ 
+- caption:   'Energia potencial elástica'
+  captionEN: 'Elastic potential energy'
+  equation:  '$$E = \frac{ k \Delta l^{2}}{2}$$'
+  csv-file:  'energia-pot-elastica'
+  cols:      ['k', 'Δl', 'E']
+  category:  'possible'
+ 
+- caption:   'Densidade'
+  captionEN: 'Density'
+  equation:  '$$\rho = \frac{m}{V}$$'
+  csv-file:  'densidade'
+  cols:      ['m', 'V', 'ρ']
+  category:  'possible'
+ 
+- caption:   'Intensidade sonora'
+  captionEN: 'Sound intensity'
+  equation:  '$$ \beta = 10 dB \cdot log(\frac{I}{I_{0}})$$'
+  csv-file:  'intensidade-sonora'
+  cols:      ['I', 'I0', 'β']
+  category:  'possible'
+ 
+ 
+ 
+ 
+- caption:   'Lei de Ohm'
+  captionEN: 'Ohm law'
+  equation:  '$$ R_{t} = \frac{1}{\frac{1}{R_{1}} + \frac{1}{R_{2}}}$$'
+  csv-file:  'lei-de-ohm'
+  cols:      ['R1', 'R2', 'Rt']
+  category:  'impossible'
+ 
+- caption:   'Teorema de Pitágoras'
+  captionEN: 'Pitagorean Theorem'
+  equation:  '$$ c = \sqrt{a^{2} + b^{2}}$$'
+  csv-file:  'pitagoras'
+  cols:      ['a', 'b', 'c']
+  category:  'impossible'
+ 
+- caption:   'Trabalho'
+  captionEN: 'Work'
+  equation:  '$$ W = F \cdot \Delta s \cdot cos(\Theta)$$'
+  csv-file:  'trabalho-theta'
+  cols:      ['F', 'Δs', 'Θ', 'W']
+  category:  'impossible'
+ 
+- caption:   'Fórmula de Bhaskara'
+  captionEN: 'Bhaskara'
+  equation:  '$$ x_{0} = \frac{ -b - \sqrt{b^{2} - 4 \cdot a \cdot c} }{2 \cdot a}$$'
+  csv-file:  'bhaskara'
+  cols:      ['a', 'b', 'c', 'x0']
+  category:  'impossible'
+ 
+- caption:   'Excentricidade da elipse'
+  captionEN: 'Ellipse eccentricity'
+  equation:  '$$ e = \sqrt{1 - \frac{b^{2}}{a^{2}}}$$'
+  csv-file:  'excentricidade-elipse'
+  cols:      ['a', 'b', 'e']
+  category:  'impossible'
+ 
+- caption:   'Dilatação do tempo'
+  captionEN: 'Time dilatation'
+  equation:  '$$ \Delta T = \frac{\Delta t}{ \sqrt{ 1 - \frac{v^{2}}{c^{2}} } } $$'
+  csv-file:  'dilatacao-tempo'
+  cols:      ['Δt', 'v', 'ΔT']
+  category:  'impossible'

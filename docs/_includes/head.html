@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{{page.page_title}} | {{site.title}}</title>
+    <title>{{page.page_title}} | {%if page.language == 'pt-br'%}{{site.title}}{%else%}{{site.title-en}}{%endif%}</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">

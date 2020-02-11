@@ -4,6 +4,7 @@ page_title: 'Notas de estudo'
 layout: 'default'
 icon: 'fas fa-book'
 language: 'pt-br'
+order: 3
 ---
 
 <p>
@@ -107,7 +108,7 @@ language: 'pt-br'
          $$\small valor IT = op(\prod_{i=1}^{n} x_{i}^{e_{i}}) .$$
 
          <p>
-            Então, calculado o valor para cada termo IT, esses podem ser combinados de forma linear realizando uma soma dos resultados obtidos, de forma que essa soma é ponderada de acordo com um coeficiente (que é calculado utilizando uma regressão linear)
+            Então, calculado o valor para cada termo IT, esses podem ser combinados de forma linear realizando uma soma dos resultados obtidos, de forma que essa soma é ponderada de acordo com um coeficiente (que é calculado utilizando uma regressão linear).
          </p>
    
          <p>
@@ -168,14 +169,15 @@ language: 'pt-br'
 
          <p>
             <strong>Algoritmo SymTree:</strong>
+            Este algoritmo inicia sua busca a partir de uma solução representando uma regressão linear. A cada iteração ele aplica as operações de interação entre as variáveis e transformação, gerando funções incrementalmente mais complexas. Mais detalhes podem ser vistos no seu <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf">artigo original</a>.
          </p>
 
          <p>
-            <strong>Algoritmo IT-LS:</strong>
+            <strong>Algoritmo IT-LS:</strong> O algoritmo funciona criando uma população inicial de expressões aleatórias e selecionando a melhor dentre elas. Após isso, executa uma busca local na equação, mudando ou as funções não-lineares ou os expoentes da equação, repetindo o processo até que não exista uma modificação que melhore ainda mais o score da equação. Esse algoritmo é executado até no máximo 50 iterações.
          </p>
 
          <p>
-            <strong>Algoritmo IT-ES:</strong>
+            <strong>Algoritmo IT-ES:</strong> O algoritmo funciona criando uma população de expressões aleatórias, e então executa um algoritmo de Estratégia Evolutiva \(\small ES-(\mu, \lambda)\). Esse algoritmo foi executado apenas com mutação, \(\small \mu=150\), \(\small \lambda=45\) e 150 iterações. Uma versão mais elaborada desse algoritmo foi posteriormente formalizada, e <a href="https://arxiv.org/pdf/1902.03983.pdf">o artigo apresentando a nova proposta do algoritmo pode ser encontrado aqui</a>.
          </p>
       
       </div>

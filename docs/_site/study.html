@@ -133,7 +133,12 @@
     <nav class="navbar fixed-top navbar-expand-xl navbar-light bg-light green-navbar">
   <div class="container d-flex justify-content-between">
 
-      <a class="navbar-brand" href="http://localhost:4000/laboratory-assistant/index.html"><strong>Assistente</strong> de Laboratório</a>
+      
+      
+      
+        <a class="navbar-brand" href="http://localhost:4000/laboratory-assistant/index.html"><strong>Assistente</strong> de Laboratório</a>
+      
+      
       
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -141,17 +146,14 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-    
-          <li class="nav-item ">
-            <a class="nav-link" href="http://localhost:4000/laboratory-assistant/index.html"><i class="fas fa-home"></i> Home</a>
-          </li>
-    
+        
+          
           
             
           
             
               <li class="nav-item ">
-                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/PGC.html"><i class="fas fa-graduation-cap"></i> PGC</a>
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/"><i class="fas fa-home"></i> Home</a>
               </li>
             
           
@@ -162,10 +164,14 @@
             
           
             
-          
-            
               <li class="nav-item  active ">
                 <a class="nav-link" href="http://localhost:4000/laboratory-assistant/study.html"><i class="fas fa-book"></i> Notas de estudo</a>
+              </li>
+            
+          
+            
+              <li class="nav-item ">
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/PGC.html"><i class="fas fa-graduation-cap"></i> PGC</a>
               </li>
             
           
@@ -173,13 +179,15 @@
         <div class="navbar-nav ml-auto">
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary disabled">
-              <input type="radio" name="options" id="option1" disabled><i class="fas fa-language"></i> Language
+              <input type="radio" name="options" id="Language" disabled><i class="fas fa-language"></i> Language
             </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off" selected> PT-BR
+            
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="Brazilian Portuguese" autocomplete="off" checked="" onclick="javascript:window.location.href='http://localhost:4000/laboratory-assistant/index.html'; return false;"> PT-BR
             </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option3" autocomplete="off"> EN-US
+
+            <label class="btn btn-secondary ">
+              <input type="radio" name="options" id="United States English" autocomplete="off"  onclick="javascript:window.location.href='http://localhost:4000/laboratory-assistant/index-en.html'; return false;"> EN-US
             </label>
           </div>
         </div>
@@ -296,7 +304,7 @@
          $$\small valor IT = op(\prod_{i=1}^{n} x_{i}^{e_{i}}) .$$
 
          <p>
-            Então, calculado o valor para cada termo IT, esses podem ser combinados de forma linear realizando uma soma dos resultados obtidos, de forma que essa soma é ponderada de acordo com um coeficiente (que é calculado utilizando uma regressão linear)
+            Então, calculado o valor para cada termo IT, esses podem ser combinados de forma linear realizando uma soma dos resultados obtidos, de forma que essa soma é ponderada de acordo com um coeficiente (que é calculado utilizando uma regressão linear).
          </p>
    
          <p>
@@ -357,14 +365,15 @@
 
          <p>
             <strong>Algoritmo SymTree:</strong>
+            Este algoritmo inicia sua busca a partir de uma solução representando uma regressão linear. A cada iteração ele aplica as operações de interação entre as variáveis e transformação, gerando funções incrementalmente mais complexas. Mais detalhes podem ser vistos no seu <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf">artigo original</a>.
          </p>
 
          <p>
-            <strong>Algoritmo IT-LS:</strong>
+            <strong>Algoritmo IT-LS:</strong> O algoritmo funciona criando uma população inicial de expressões aleatórias e selecionando a melhor dentre elas. Após isso, executa uma busca local na equação, mudando ou as funções não-lineares ou os expoentes da equação, repetindo o processo até que não exista uma modificação que melhore ainda mais o score da equação. Esse algoritmo é executado até no máximo 50 iterações.
          </p>
 
          <p>
-            <strong>Algoritmo IT-ES:</strong>
+            <strong>Algoritmo IT-ES:</strong> O algoritmo funciona criando uma população de expressões aleatórias, e então executa um algoritmo de Estratégia Evolutiva \(\small ES-(\mu, \lambda)\). Esse algoritmo foi executado apenas com mutação, \(\small \mu=150\), \(\small \lambda=45\) e 150 iterações. Uma versão mais elaborada desse algoritmo foi posteriormente formalizada, e <a href="https://arxiv.org/pdf/1902.03983.pdf">o artigo apresentando a nova proposta do algoritmo pode ser encontrado aqui</a>.
          </p>
       
       </div>
@@ -374,7 +383,7 @@
           <div class="container">
 
   <div class="text-justify">
-      <h1 class="text-center">Contato</h1>
+      <h1 class="text-center"> Contato <br></h1>
   </div>
 
   <div class="content-text" style="padding-bottom: 0px !important;">
@@ -383,7 +392,7 @@
 
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <p>
-              <strong>Orientador:</strong><br>
+               <strong>Orientador:</strong> <br>
               <i class="fas fa-user-circle"></i> Prof. Dr. Fabrício Olivetti de França<br>
               <i class="fas fa-envelope"></i> <em>folivetti@ufabc.edu.br</em>
             </p>
@@ -391,9 +400,9 @@
 
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <p>
-              <strong>Discente:</strong><br>
+               <strong>Discente:</strong> <br>
               <i class="fas fa-user-circle"></i> Guilherme Seidyo Imai Aldeia<br>
-              <i class="fas fa-envelope"></i> <em>guilherme.aldeia@aluno.ufabc.edu.br</em>
+              <i class="fas fa-envelope"></i> <em>guilherme.aldeia@ufabc.edu.br</em>
             </p>
         </div>
 
@@ -411,7 +420,8 @@
           <img class="img-fluid" src="http://localhost:4000/laboratory-assistant/assets/images/logotipo-ufabc-extenso.png"></img>
       </p>
 
-      <p class="text-center">&copy; Copyright 2019 Guilherme Seidyo Imai Aldeia</p>
+      <!--p class="text-center">&copy; Copyright 2020 Guilherme Seidyo Imai Aldeia</p-->
+      <p class="text-center">2020 Guilherme Seidyo Imai Aldeia</p>
 
   </div>
 </div>

@@ -26,10 +26,10 @@ function showMessage(elementID, message, success=false){
 	}
 	else{
 		if (success){
-			$('#' + elementID).html("<div class='alert alert-success' role='alert'><h5 class='alert-heading'><b>Sucesso!</b></h5><hr><div id='notification-text'></div></div>");
+			$('#' + elementID).html("<div class='alert alert-success' role='alert'><h5 class='alert-heading'><b>Sucesso!</b> <small><i>Success!</i></small></h5><hr><div id='notification-text'></div></div>");
 		}
 		else{
-			$('#' + elementID).html("<div class='alert alert-danger' role='alert'><h5 class='alert-heading'><b>Atenção!</b></h5><hr><div id='notification-text'></div></div>");
+			$('#' + elementID).html("<div class='alert alert-danger' role='alert'><h5 class='alert-heading'><b>Atenção!</b> <small><i>Attention!</i></small></h5><hr><div id='notification-text'></div></div>");
 		}
 		$('#' + elementID + ' > div > #notification-text').html(message);	
 	}
@@ -44,7 +44,7 @@ function csvUpload(elementID){
 	let csv = $("#" + elementID).prop('files')[0];
 
 	if (csv==undefined)	
-		throw showMessage("input-notification", "O site só aceita arquivos de extensão .csv, e o algoritmo precisa de pelo menos uma linha de entrada para funcionar!");
+		throw showMessage("input-notification", "O site só aceita arquivos de extensão .csv, e o algoritmo precisa de pelo menos uma linha de entrada para funcionar! <br><small><i>The site only accepts .csv files, and the algorithm needs at least one entry line to work!</i></small>");
 	
 	reader.readAsText(csv);
 
@@ -90,17 +90,17 @@ function loadHandler(inputData){
 			lines.push(tarr);
 
 			if (lines[0].length != tarr.length)
-				throw showMessage("input-notification", "Nem todas as suas linhas de entrada contém a mesma quantidade de números!");
+				throw showMessage("input-notification", "Nem todas as suas linhas de entrada contém a mesma quantidade de números! <br><small><i>Not all of your entry lines contain the same number of numbers!</i></small>");
 		}
 	});
 
 	if (lines.length==0)
-		throw showMessage("input-notification", "O algoritmo precisa de pelo menos uma linha de entrada para funcionar!");
+		throw showMessage("input-notification", "O algoritmo precisa de pelo menos uma linha de entrada para funcionar! <br><small><i>The algorithm needs at least one input line to work!</i></small>");
 	
 	if (lines[0].length==1)
-		throw showMessage("input-notification", "cada linha precisa de pelo menos 2 valores!");  
+		throw showMessage("input-notification", "Cada linha precisa de pelo menos 2 valores! <br><small><i>Each line needs at least 2 values!</i></small>");  
 	
-	showMessage("input-notification", "Os dados foram carregados!", true);  
+	showMessage("input-notification", "Os dados foram carregados! <br><small><i>The data has been loaded!</i></small>", true);  
 	showMessage("results-notification", "clear");  
 
 	readData(lines);

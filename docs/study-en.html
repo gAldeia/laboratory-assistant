@@ -1,0 +1,185 @@
+---
+title: 'Study notes'
+page_title: 'Study notes'
+layout: 'default'
+icon: 'fas fa-book'
+language: 'en-us'
+order: 3
+---
+
+<p>
+   On this page, the problem of regression will be presented, in order to contextualize the developed tool and its use. For further reading, a series of subsequent works are cited throughout the text (some in English), and help to complement everything discussed.
+</p>
+
+<p>
+   This tool was the first project developed by Guilherme Aldeia under the guidance of Prof. Dr. Fabrício Olivetti de França, starting in May/2017 and finished in August/2018. The page was revisited and created from scratch again in December/2019, for refactoring the code following good practices learned during the journey.
+</p>
+
+<p>
+   Also, starting in September 2018, still under the guidance of Fabrício, Guilherme developed his Computer Science Graduation Project on the same theme, where he further studied a proposal for an evolutionary algorithm using the IT structure, and the report can be <a href = "{{site.url}} {{site.baseurl}} / PGC.html"> found here </a>.
+</p>
+
+<!--O problema da regressão-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+   <h5 class="card-header">
+      <a data-toggle="collapse" href="#regression-problem-body" aria-expanded="true" aria-controls="regression-problem-body" id="regression-problem-header" class="d-block">
+         <i class="fa fa-chevron-down" style="float: right"></i>
+         The regression problem
+      </a>
+   </h5>
+   <div id="regression-problem-body" class="show collapse" aria-labelledby="regression-problem-header">
+      <div class="card-body">
+         <p>
+            Regression is the name given to statistical processes that aims to find a relationship between a set of variables, describing that relationship through a function.
+         </p>
+
+         <p>
+            A set of variables has the form \(\small \{\mathbf {X}, \mathbf {y} \} \), where \(\small \mathbf {X} = \{\mathbf {x_ {1}} , \mathbf {x_ {2}, \ldots, \mathbf {x_ {n}}} \} \) is a set of vectors, where each of its elements corresponds to the problem variables for a sample, called explanatory variable; and \(\small \mathbf {y} \) is a set of scalars, where each element is the value obtained by applying a function \(\small \widehat {f} (\mathbf {x}) = y \) on the explanatory variables, and is called target variable. We start from the assumption that \(\small y \) depends on \(\small \mathbf {x} \). A set consisting of several samples is called a database (or dataset):
+         </p>
+         
+         $$\small \{ (\mathbf{x_{1}}, y_{1}), (\mathbf{x_{2}}, y_{2}), \ldots, (\mathbf{x_{d}}, y_{d}) \} .$$
+   
+         <p>
+            Linear regression is a widely known regression method, where the guess is that the function that fits the set of variables is a linear composition of parameters. In a simple linear regression there may still be an independent term.
+         </p>
+         
+         <p>
+            The algorithms developed on this site work by building linear expressions, but each algorithm performs this process using a different approach. These details will be presented later.
+         </p>
+   
+         <p>
+            Given a database containing \(\small d \) samples, where each sample has \(\small n \) explanatory variables, a possible way to perform the regression is to fit a line \(\small \widehat {r} (\mathbf {x}) \), where its coefficients are chosen with the value that most minimizes the error between the values that this line predicts for a given \(\small \mathbf {x} _ {i} \) and the corresponding target variable \(\small y_ {i} \) - this method is known as <strong> linear regression </strong>, and is probably the most used regression method in the most diverse problems. Being a line defined by a set of coefficients that multiply each variable, plus a <strong> free coefficient </strong> that represents the intercept of that line, the regression will look for the values for \(\small \omega_ {0}, \omega_ {1}, \ldots, \omega_ {n} \) that minimize the line error in relation to known points:
+         </p>
+   
+         $$ \small\widehat{y} = \widehat{r}(\mathbf{x}) = \omega_{0} + \omega_{1} x_{1} + \omega_{2} x_{2} + \ldots + \omega_{n} x_{n}.$$
+
+         <p>
+            Despite having several advantages, this form of regression fails when the data does not behave in a linear fashion - in these cases, it is necessary to resort to more sophisticated methods. The regression models are classified as parametric (which only adjust the free coefficients of a predetermined equation) or nonparametric (which adjust both the free coefficients and <strong> the function form itself </strong>).
+         </p>
+
+         <p>
+            One of the well-known non-parametric regression models is symbolic regression, which searches for mathematical functions and adjusts its coefficients automatically, without having a predetermined function to try to describe the behavior of the data in the database. This technique is commonly implemented by means of genetic programming, which creates and manipulates expression trees and, through the simulation of mechanisms inspired by the theory of evolution, makes the created solutions compete with each other to "survive". In other words, genetic programming simulates the evolutionary process through computational resources, based on the belief that evolution is a mechanism that favors more apt individuals and, eventually, a simulation of these processes can help to find a solution to the problem.
+         </p>
+      </div>
+   </div>
+</div>
+
+<!--A estrutura de dados IT-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+   <h5 class="card-header">
+      <a data-toggle="collapse" href="#estrutura-IT-body" aria-expanded="true" aria-controls="estrutura-IT-body" id="estrutura-IT-header" class="d-block">
+         <i class="fa fa-chevron-down" style="float: right"></i>
+         A estrutura de dados IT
+      </a>
+   </h5>
+   <div id="estrutura-IT-body" class="show collapse" aria-labelledby="estrutura-IT-header">
+      <div class="card-body">
+
+         <p>
+            In computing, it is common to use data structures in programs to conveniently represent the data we are manipulating. The most common way to implement symbolic regression is through expression trees, but this can be done in other ways.
+         </p>
+
+         <p>
+            In particular, the representation by trees is not very convenient because it presents some problems that make the task of finding a solution difficult, because they allow the existence of redundancies, and the trees are fragile so that a small change in them can trigger a complete change in behavior of the final function (<a href="https://folivetti.github.io/files/InfoScienceITSR.pdf"> this paper </a> presents these problems and proposes a new representation, which was used to develop the algorithms on this page ).
+         </p>
+
+         <p>
+            Alternatively, the implementations on this page for symbolic regression were based on a different representation of the trees - a structure proposed in 2018 was used in the paper <a href = "https://folivetti.github.io/files/InfoScienceITSR. pdf "> <em> A Greedy Search Tree Heuristic for Symbolic Regression </em> </a>, called <strong> Interaction-Transformation </strong> (abbreviated as IT).
+         </p>
+
+         <p>
+            The IT data structure internally holds a set of exponents and a single operation:
+         </p> 
+
+         $$\small IT = (\{e_{1}, e_{2}, \ldots, e_{n}\}, op),$$
+   
+         <p>
+            where the set of exponents is always the same size as \(\small \mathbf {x} _ {i} \). In the implementation of this page, the possible functions that can be used instead of the operation are:
+         </p>
+               
+         <p class="text-center">
+            <em>identity, sin, cos, tan, absolute value, square root, exponential and logarithm</em>
+         </p>
+   
+         <p>
+            A single IT term represents an elementary "building block" to be used by the algorithms in the search for functions. The algorithms will, in an iterative way, increase the size of the IT expression through the linear combination of several IT terms. To calculate the value of an IT expression for a given \(\small \mathbf {x} _ {i} \), the following process is repeated for each IT term that makes up the final expression: <em> i) </ em > each element of \(\small \mathbf {x} _ {i} \) rises to its respective exponent \(\small e_ {i} \) (belonging to the internal set of exponents); <em> ii) </em> all values obtained are multiplied; and, finally, <em> iii) </em> the operation of the structure is applied on top of the obtained value:
+         </p>
+   
+         $$\small valor IT = op(\prod_{i=1}^{n} x_{i}^{e_{i}}) .$$
+
+         <p>
+            Then, calculating the value for each IT term, these can be combined in a linear way by making a sum of the results obtained, so that this sum is weighted according to a coefficient (which is calculated using a linear regression).
+         </p>
+   
+         <p>
+            The IT data structure has limitations that prevent some functions from being created. All the algorithms implemented here are based on this data structure, and their expressions are composed by adding several IT structures. Take as an example the IT structure for a 3-variable problem, and its corresponding mathematical form:
+         </p>
+   
+         $$\small IT_{1} = (\{-2, 1, 0\}, sin) \rightarrow \widehat{f}_{IT}(x, y, z) = sin ( \frac{y}{x^{2}} ). $$ 
+   
+         <p>
+            The algorithm composes an expression adding several IT structures, where each one has a coefficient. This means that every expression will be of the form:
+         </p>
+   
+         $$\small \widehat{f}(x_{1}, x_{2}, \ldots, x_{n}) = \omega_{1}IT_{1} + \omega_{2}IT_{2} + \ldots + \omega_{m}IT_{m} $$
+   
+         <p>
+            Each IT structure represents a term. One possible equation that the algorithm can find is:
+         </p>
+                           
+         $$\small \widehat{f}(x_{0}, x_{1}) =  sin(x_{0}) + 2\cdot cos(x_{1}^{2})$$
+         
+         <p>
+            But notice that the expression:
+         </p>
+               
+         $$\small \widehat{f}(x_{0}, x_{1}) = sin(x_{0} + cos(x_{1})) $$
+         
+         <p>
+            will never be formed, as it is as if we have an IT structure containing another IT structure. Because it is not possible to form the expression, its exact solution will never be found, although there may be some other equivalent expression or one that minimizes the error and consequently presents a good score.
+         </p>
+
+         <p>
+            From a point of view, this limits the search field, which unlike the genetic algorithm, has no restrictions on the form of the expressions. But, on the other hand, cases where the equation that governs the input data may have several chained functions are unlikely:
+         </p>
+   
+         $$\small \widehat{f}(x_{0}, x_{1}) = sin(x_{0} + cos( 2\cdot tan(x_{1})) $$
+         
+         <p>
+            In addition, it also prevents extremely complex expressions from being created and eventually selected because they end up fitting well to the entry points. This ensures greater simplicity in the results.
+         </p>
+      </div>
+   </div>
+</div>
+
+<!--Algoritmos implementados-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+   <h5 class="card-header">
+      <a data-toggle="collapse" href="#algoritmos-body" aria-expanded="true" aria-controls="algoritmos-body" id="algoritmos-header" class="d-block">
+         <i class="fa fa-chevron-down" style="float: right"></i>
+         Implemented algorithms
+      </a>
+   </h5>
+   <div id="algoritmos-body" class="show collapse" aria-labelledby="algoritmos-header">
+      <div class="card-body">
+
+         <p>
+            In total, 3 different algorithms were implemented, based on the Interaction-Transformation representation:
+         </p>
+
+         <p>
+            <strong>SymTree Algorithm:</strong>
+            This algorithm starts its search from a solution representing a linear regression. At each iteration he applies the operations of interaction between variables and transformation, generating incrementally more complex functions. More details can be seen in the <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf"> original paper </a>.
+         </p>
+
+         <p>
+            <strong>IT-LS Algorithm:</strong> The algorithm works by creating an initial population of random expressions and selecting the best one among them. After that, it performs a local search in the equation, changing either the non-linear functions or the exponents of the equation, repeating the process until there is no modification that improves the equation score even more. This algorithm runs up to a maximum of 50 iterations.
+         </p>
+
+         <p>
+            <strong>IT-ES Algorithm:</strong> The algorithm works by creating a population of random expressions, and then executes an Evolutionary Strategy \(\small ES - (\mu, \lambda) \) algorithm. This algorithm was performed only with mutation, with constrains for \(\small \mu = 150 \), \(\small \lambda = 50 \), and 150 iterations. A more elaborate version of this algorithm was later formalized, and <a href="https://arxiv.org/pdf/1902.03983.pdf"> the paper presenting the new proposal for the algorithm can be found here </a>.
+         </p>
+      
+      </div>
+   </div>
+</div>

@@ -4,6 +4,7 @@ page_title: 'Home'
 layout: 'default'
 icon: 'fas fa-home'
 language: 'pt-br'
+order: 1
 ---
 
 <p>
@@ -25,11 +26,11 @@ language: 'pt-br'
           <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h5><strong>1 - Digite os dados</strong></h5>
             <p>
-              Os dados de entrada podem ser digitados ou carregados através de um arquivo .csv. O formato de entrada devem primeiro conter as variáveis de entrada e, em seguida, a variável de medição: x1, x2, ...,y. Opcionalmente, a primeira linha pode conter os nomes das variáveis (clique na caixa correspondente para ativar essa opção);
+              Os dados de entrada podem ser digitados ou carregados através de um arquivo .csv. Cada linha da entrada devem primeiro conter as variáveis do problema e, em seguida, a variável de medição: x1, x2, ...,y. Opcionalmente, a primeira linha pode conter os nomes das variáveis (clique na caixa correspondente para ativar essa opção);
             </p>
           </div>
           <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h5><strong>1 - Digite os dados</strong></h5>
+            <h5><strong>2 - Escolha e execute um algoritmo</strong></h5>
             <p>
               Escolha o algoritmo a ser executado. Os algoritmos por padrão apresentam configurações para uma boa performance em navegadores, mas é possível modificar os seus parâmetros clicando na engrenagem na área de <em>execução e resultados</em>;
             </p>
@@ -55,7 +56,7 @@ language: 'pt-br'
   </h5>
   <div class="card-body">
     <p>
-      Os dados podem ser digitados manualmente, ou você pode fazer o upload de um arquivo <strong>.csv</strong> contendo seus dados. Caso queira, a primeira linha pode ser usada para nomear as variáveis. No site há uma página mais elaborada sobre os <a href=".\input-examples.html">dados de entrada</a>. O site manterá guardado o último conjunto de dados que foi carregado com êxito.
+      Os dados podem ser digitados manualmente, ou você pode fazer o upload de um arquivo <strong>.csv</strong> contendo seus dados. Caso queira, a primeira linha pode ser usada para nomear as variáveis. No site há uma página mais elaborada sobre os <a href=".\input-examples.html">dados de entrada</a>, com exemplos para testar o algoritmo. O site manterá guardado o último conjunto de dados que foi carregado com êxito até o final da sessão.
     </p>
     <div class="container">
       <div class="row">
@@ -363,7 +364,7 @@ language: 'pt-br'
             <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h5><strong>Algoritmo SymTree</strong></h5>
                 <p>
-                  Este algoritmo inicia sua busca a partir de uma solução representando uma regressão linear. A cada iteração ele aplica as operações de interação entre as variáveis e transformação, gerando funções incrementalmente mais complexas. Esse algoritmo é executado por oito Threshold. Mais detalhes podem ser vistos no seu <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf">artigo original</a>.
+                  Este algoritmo inicia sua busca a partir de uma solução representando uma regressão linear. A cada iteração ele aplica as operações de interação entre as variáveis e transformação, gerando funções incrementalmente mais complexas. Mais detalhes podem ser vistos no seu <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf">artigo original</a>.
                 </p>
             </div>
             <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -399,7 +400,7 @@ language: 'pt-br'
         A Regressão Simbólica tem por objetivo encontrar a função geradora de uma base de dados amostrais. Ela difere de outros tipos de regressão pois não está restrito a uma forma fixa como em métodos de regressão linear, polinomial e redes neurais. Normalmente, a Regressão Simbólica é feita através de Algoritmos Evolutivos (ex.: Programação Genética), mas esses costumam ser computacionalmente custosos, mesmo em bases de dados de baixa dimensão.
       </p>
       <p>
-        Esse projeto tem como objetivo mostrar o potencial do algoritmo SymTree para dados de baixa dimensão e gerados por funções conhecidas da Física, Matemática e Engenharia.
+        Este projeto tem como objetivo mostrar o potencial do algoritmo SymTree para dados de baixa dimensão e gerados por funções conhecidas da Física, Matemática e Engenharia.
       </p>
       <p>
         Esse projeto foi desenvolvido por Guilherme Aldeia como parte de sua iniciação científica orientado pelo prof. Fabricio Olivetti de França na Universidade Federal do ABC.

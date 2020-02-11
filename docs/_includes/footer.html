@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="text-justify">
-      <h1 class="text-center">Contato</h1>
+      <h1 class="text-center">{%if page.language == 'pt-br'%} Contato {%else%} Contact {%endif%}<br></h1>
   </div>
 
   <div class="content-text" style="padding-bottom: 0px !important;">
@@ -10,7 +10,7 @@
 
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <p>
-              <strong>Orientador:</strong><br>
+              {%if page.language == 'pt-br'%} <strong>Orientador:</strong> {%else%} <strong>Mentor:</strong> {%endif%}<br>
               <i class="fas fa-user-circle"></i> Prof. Dr. Fabrício Olivetti de França<br>
               <i class="fas fa-envelope"></i> <em>folivetti@ufabc.edu.br</em>
             </p>
@@ -18,9 +18,9 @@
 
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <p>
-              <strong>Discente:</strong><br>
+              {%if page.language == 'pt-br'%} <strong>Discente:</strong> {%else%} <strong>Mentee:</strong> {%endif%}<br>
               <i class="fas fa-user-circle"></i> Guilherme Seidyo Imai Aldeia<br>
-              <i class="fas fa-envelope"></i> <em>guilherme.aldeia@aluno.ufabc.edu.br</em>
+              <i class="fas fa-envelope"></i> <em>guilherme.aldeia@ufabc.edu.br</em>
             </p>
         </div>
 
@@ -38,7 +38,8 @@
           <img class="img-fluid" src="{{ site.url }}{{ site.baseurl }}{{ site.img_folder }}logotipo-ufabc-extenso.png"></img>
       </p>
 
-      <p class="text-center">&copy; Copyright 2019 Guilherme Seidyo Imai Aldeia</p>
+      <!--p class="text-center">&copy; Copyright 2020 Guilherme Seidyo Imai Aldeia</p-->
+      <p class="text-center">2020 Guilherme Seidyo Imai Aldeia</p>
 
   </div>
 </div>

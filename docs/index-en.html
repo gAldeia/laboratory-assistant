@@ -1,0 +1,420 @@
+---
+title: 'Laboratory Assistant'
+page_title: 'Home'
+layout: 'default'
+icon: 'fas fa-home'
+language: 'en-us'
+order: 1
+---
+
+<p>
+  This page was developed to show the possibility of applying the SymTree algorithm for symbolic regression with low computational cost. This tool can be used as an assistant to teaching laboratories in which measurement experiments are carried out to verify the visualizations seen in the classroom. The technology created was written in JavaScript language and, therefore, runs the algorithm in the user's own browser. Try it!
+</p>
+
+<!--Como utilizar a ferramenta online-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+  <h5 class="card-header">
+    <a data-toggle="collapse" href="#how-to-body" aria-expanded="true" aria-controls="how-to-body" id="how-to-header" class="collapsed d-block">
+      <i class="fa fa-chevron-down" style="float: right"></i>
+      How to use the online tool?
+    </a>
+  </h5>
+  <div id="how-to-body" class="collapse" aria-labelledby="how-to-header">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h5><strong>1 - Enter the data</strong></h5>
+            <p>
+              The input data can be typed or loaded through a .csv file. All input lines must first contain the input variables and then the measurement variable: x1, x2, ..., y. Optionally, the first line can contain the labels of the variables (click on the corresponding box to activate this option);
+            </p>
+          </div>
+          <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h5><strong>2 - Choose and run one algorithm</strong></h5>
+            <p>
+              Choose the algorithm to be executed. The algorithms by default present settings for good performance in browsers, but it is possible to modify their parameters by clicking on the gear in the <em> execution and results </em> area;
+            </p>
+          </div>
+          <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h5><strong>3 - Analyze the result</strong></h5>
+            <p>
+              After completing the processing, the site will display the results of the symbolic regression, which can be manipulated. For a better understanding, the page <a href="{{ site.url }}{{ site.baseurl }}/study.html""> study notes </a> provides an explanation of the developed tool.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Entrada de dados-->
+<div class="card border-secondary" style="margin-top: 20px; margin-bottom: 20px">
+  <h5 class="card-header">
+    <a>
+      Data input
+    </a>
+  </h5>
+  <div class="card-body">
+    <p>
+      The data can be entered manually, or you can upload a <strong> .csv </strong> file containing your data. If desired, the first line can be used to label the variables. On this website, there is a more elaborate page about the <a href=".\input-examples.html">input data</a>, with examples to test the algorithm. The website will keep the last data set that was successfully loaded until the end of the section.
+    </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h5><strong>Manual data entry</strong></h5>
+            <textarea style="max-width: 100%; min-width:100%" class="form-control" rows="8" placeholder="Enter the data here. One point on each line, separated by commas, spaces or tabs" id="my-manualinput"></textarea>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h5><strong>Local file upload</strong></h5>
+            <span class="btn btn-default btn-file">
+                <input type="file" class="form-control-file" id="my-csvinput" accept=".csv"/>
+            </span><hr>
+        </div>
+      </div>
+    </div>
+    <p class="text-center" style="margin-top:20px">
+      <input type="checkbox" id="labeled" value="true">
+      <label for="labeled">Use the first line as label?</label>
+    </p>
+    <div class="container">
+      <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <p>
+              <button type="button" class="btn btn-secondary btn-block" onclick="performUpload('my-manualinput', 'manual');">Use typed values</button>
+            </p>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <p>
+              <button type="button" class="btn btn-secondary btn-block" onclick="performUpload('my-csvinput', 'csv');">Use uploaded file</button>
+            </p>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <p>
+              <button type="button" class="btn btn-secondary btn-block" onclick="get_example('my-manualinput', 'manual')">I picked an example</button>
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer" id="input-notification"></div>
+</div>
+
+<!--execução e resultados-->
+<div class="card border-secondary" style="margin-top: 20px; margin-bottom: 20px">
+  <h5 class="card-header">
+    <a>
+      Execution and results 
+    </a>
+    <a data-toggle="collapse" href="#configs-body" aria-expanded="true" aria-controls="configs-body" id="configs-header" class="collapsed d-block float-right"><i class="fas fa-cogs"></i> Options</a>
+    <div id="configs-body" class="collapse" aria-labelledby="configs-header">
+      <hr>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <p>SymTree (Symbolic Tree)</p>
+            <div class="form-row">
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="symtree-iteractions">Iteractions</label>
+                <select class="custom-select mr-sm-2" id="symtree-iteractions">
+                  <option value="1">1</option>
+                  <option value="2">2 (best performance)</option>
+                  <option value="3">3</option>
+                  <option value="4" selected>4 (default)</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="symtree-threshold">Threshold</label>
+                <select class="custom-select mr-sm-2" id="symtree-threshold">
+                  <option value="0.005">0.005</option>
+                  <option value="0.05" selected>0.05 (default)</option>
+                  <option value="0.10">0.10</option>
+                  <option value="0.10">0.20</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="symtree-inv">Inverse interaction start</label>
+                <select class="custom-select mr-sm-2" id="symtree-inv">
+                  <option value="1">1</option>
+                  <option value="2" selected>2 (default)</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="symtree-transf">Transformation interaction start</label>
+                <select class="custom-select mr-sm-2" id="symtree-transf">
+                  <option value="1">1</option>
+                  <option value="2" selected>2 (default)</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="symtree-stopscore">Stop Score</label>
+                <select class="custom-select mr-sm-2" id="symtree-stopscore">
+                  <option value="0.75">0.75</option>
+                  <option value="0.9">0.90</option>
+                  <option value="0.99" selected>0.99 (defaul)</option>
+                  <option value="1.0">No stop score</option>
+                </select>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <p>IT-LS (Interaction-Transformation Local Search)</p> 
+            <div class="form-row">
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="itls-popsize">Population size</label>
+                <select class="custom-select mr-sm-2" id="itls-popsize">
+                  <option value="50">50 (best performance)</option>
+                  <option value="100">100</option>
+                  <option value="150" selected>150 (default)</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="itls-startsize">Initial size of expressions</label>
+                <select class="custom-select mr-sm-2" id="itls-startsize">
+                  <option value="1" selected>1 (defaul)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="itls-endsize">Expressions allowed growth</label>
+                <select class="custom-select mr-sm-2" id="itls-endsize">
+                  <option value="0">No growth</option>
+                  <option value="3" selected>3 (default)</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="itls-expolim">Exponent limits (on the initial population)</label>
+                <select class="custom-select mr-sm-2" id="itls-expolim">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3" selected>3 (default)</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="itls-iteractions">Iteractions</label>
+                <select class="custom-select mr-sm-2" id="itls-iteractions">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50 (default)</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="itls-stopscore">Stop score</label>
+                <select class="custom-select mr-sm-2" id="itls-stopscore">
+                  <option value="0.75">0.75</option>
+                  <option value="0.9">0.90</option>
+                  <option value="0.995" selected>0.995 (default)</option>
+                  <option value="1.0">No stop score</option>
+                </select>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+            <p>IT-ES (Interaction-Transformation Evolution Strategies)</p>
+            <div class="form-row">
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="ites-popsize">Population size</label>
+                <select class="custom-select mr-sm-2" id="ites-popsize">
+                  <option value="50">50 (best performance)</option>
+                  <option value="100">100</option>
+                  <option value="150" selected>150 (default)</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="ites-startsize">Initial size of expressions</label>
+                <select class="custom-select mr-sm-2" id="ites-startsize">
+                  <option value="1" selected>1 (default)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="ites-endsize">Expressions allowed growth</label>
+                <select class="custom-select mr-sm-2" id="ites-endsize">
+                  <option value="0">Sem crescimento</option>
+                  <option value="3" selected>3 (default)</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="ites-selecsize">Offspring size</label>
+                <select class="custom-select mr-sm-2" id="ites-selecsize">
+                  <option value="15">15</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50 (default)</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="ites-expolim">Exponents limits</label>
+                <select class="custom-select mr-sm-2" id="ites-expolim">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3" selected>3 (default)</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="ites-gens">Generations</label>
+                <select class="custom-select mr-sm-2" id="ites-gens">
+                  <option value="15">15</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50 (default)</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2" for="ites-stopscore">Stop score</label>
+                <select class="custom-select mr-sm-2" id="ites-stopscore">
+                  <option value="0.75">0.75</option>
+                  <option value="0.9">0.90</option>
+                  <option value="0.995" selected>0.995 (default)</option>
+                  <option value="1.0">No stop score</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </h5>
+  <div class="card-body">
+    <p>
+      With the data loaded, choose one of the algorithms below. It is also possible to adjust the parameters of the algorithm by clicking on the above gear (this can improve the execution time, at the cost of performing a simpler search. The first parameter is the one that most impacts the execution time, and a suggestion is indicated).
+    </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p>
+            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('SymTree')">SymTree Algorithm(Symbolic Tree)</button>
+          </p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p>
+            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('ITLS')">IT-LS Algorithm (Interaction-Transformation Local Search)</button>
+          </p>            
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p>
+            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('ITES')">IT-ES Algorithm (Interaction-Transformation Evolution Strategies)</button>
+          </p>              
+        </div>
+      </div>
+    </div>
+
+    <div id="results-div" style="display: none;">
+      <h5>Results:</h5>
+      <div id="results-log"><pre></pre></div>
+      <p> After obtained a symbolic function, we can understand a little more about it by inspecting the effect that each term has on the final behavior. Check the behavior of the terms (or combinations of them) in relation to the target variable or in relation to one of the input variables, selecting those that you would like to include in the final expression.</p>
+
+      <p>
+        First, select the terms to compose the new expression. After that, we have two plot options: <em> i) </em> predicted value versus the real value - the closer to a line the graph is, the better its ability to predict values; <em> ii) </em> predicted value versus a variable - this allows you to see how the expression's behavior changes when all variables are fixed, and only one is varied (this plot will be limited to the range of used values).
+      </p>
+
+      <div class='row'>
+        <div class='col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12' id='func-composer'>
+          <div id="graphics-control"></div>
+          <button type='button' class='btn btn-secondary btn-lg btn-block' onclick='update_plot()'>Plot T <i>x</i> Y</button><br>
+          <button type='button' class='btn btn-secondary btn-lg btn-block' onclick='update_variable_plot()'>Plot T <i>x</i> X</button>
+        </div>
+        <div class='col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12'>
+          <div  id='func-ploter' style="width: 100%; height: calc(100%-50px); min-height: 500px;"></div>
+          <p id='func-latex'></p>
+        </div>
+      </div><br>
+    </div>
+  </div>
+  <div class="card-footer" id="results-notification"></div>
+</div>
+
+<!--Os resultados obtidos foram satisfatórios?-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+    <h5 class="card-header">
+      <a data-toggle="collapse" href="#quality-body" aria-expanded="true" aria-controls="quality-body" id="quality-header" class="d-block">
+        <i class="fa fa-chevron-down" style="float: right"></i>
+        Were the results obtained satisfactory?
+      </a>
+    </h5>
+    <div id="quality-body" class="show collapse" aria-labelledby="quality-header">
+      <div class="card-body">
+        <p>
+          Symbolic regression is an difficult task, as it has a very large number of parameters to adjust - the free coefficients, but also the form of the function itself. In our case, it may be that: the real equation cannot be represented, the data is very noisy, or the amount of data needed is greater than that used. Even so, the algorithm is able to present good results in several scenarios.
+        </p>
+        <p>
+          To qualify the expressions finded by the algorithm, we use the <em> score </em>. The score is a classification for the expression, according to how well this expression fits the input data, and ranges from 0 to 1. The score is calculated by:
+        </p>
+        <p>
+          $$\small{ score = \frac{1}{MAE} }$$
+        </p>
+        <p>
+          Where the MAE (mean absolute error) is equal to the sum of the differences between the values of the dependent variable yi and the values predicted by using the expression for Xi:
+        </p>
+        <p>
+          $$\small{ Mean Absolute Error\ (MAE)  = \sum_{i=1}^{n}\frac{|y_{i} - \widehat{f}(X_{i})|}{n} }$$
+        </p>
+        <p>
+          Where n is the size of the database used.
+        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h5><strong>SymTree Algorithm</strong></h5>
+                <p>
+                  This algorithm starts its search from a solution representing a linear regression. At each iteration he applies the operations of interaction between variables and transformation, generating incrementally more complex functions. More details can be seen in the <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf"> original paper </a>.
+                </p>
+            </div>
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h5><strong>IT-LS Algorithm</strong></h5>
+                <p>
+                  The algorithm works by creating an initial population of random expressions and selecting the best one among them. After that, it performs a local search in the equation, changing either the non-linear functions or the exponents of the equation, repeating the process until there is no modification that improves the equation score even more. This algorithm runs up to a maximum of 50 iterations.
+                </p>
+            </div>
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h5><strong>IT-ES Algorithm</strong></h5>
+                <p>
+                  The algorithm works by creating a population of random expressions, and then executes an Evolutionary Strategy \(\small ES - (\mu, \lambda) \) algorithm. This algorithm was performed only with mutation, with constrains for \(\small \mu = 150 \), \(\small \lambda = 50 \), and 150 iterations. A more elaborate version of this algorithm was later formalized, and <a href="https://arxiv.org/pdf/1902.03983.pdf"> the paper presenting the new proposal for the algorithm can be found here </a>.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--Sobre-->
+<div class="card border-primary" style="margin-top: 20px; margin-bottom: 20px">
+  <h5 class="card-header">
+    <a data-toggle="collapse" href="#about-body" aria-expanded="true" aria-controls="about-body" id="about-header" class="collapsed d-block">
+      <i class="fa fa-chevron-down" style="float: right"></i>
+      About
+    </a>
+  </h5>
+  <div id="about-body" class="collapse" aria-labelledby="about-header">
+    <div class="card-body">
+      <p>
+        Symbolic Regression aims to find the generating function of a sample database. It differs from other types of regression by not restricting the search to a fixed form as in linear, polynomial and neural network regression methods. Normally, Symbolic Regression is done through Evolutionary Algorithms (eg, Genetic Programming), but these tend to be computationally costly, even in small-scale databases.
+      </p>
+      <p>
+        This project aims to show the potential of the SymTree algorithm for small dimensional data, applying it to known functions of Physics, Mathematics and Engineering.
+      </p>
+      <p>
+        This project was developed by Guilherme Aldeia as part of his scientific initiation guided by Prof. Dr. Fabricio Olivetti de França at the Federal University of ABC.
+      </p>
+    </div>
+  </div>
+</div>
+    
+<!-- scripts dos algoritmos de regressão simbólica-->
+<script src="{{ site.url }}{{ site.baseurl }}{{ site.js_folder }}LoadFile.js"></script>
+<script src="{{ site.url }}{{ site.baseurl }}{{ site.js_folder }}SymbolicRegression.js"></script>
+
+<script src="{{ site.url }}{{ site.baseurl }}{{ site.js_folder }}main.js"></script>
+
+<script src="{{ site.url }}{{ site.baseurl }}{{ site.js_folder }}math.js"></script>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

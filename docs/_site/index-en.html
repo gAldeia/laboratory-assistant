@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Home | Assistente de Laboratório</title>
+    <title>Home | Laboratory Assistant</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -136,7 +136,7 @@
       
       
       
-        <a class="navbar-brand" href="http://localhost:4000/laboratory-assistant/index.html"><strong>Assistente</strong> de Laboratório</a>
+        <a class="navbar-brand" href="http://localhost:4000/laboratory-assistant/index-en.html"><strong>Laboratory</strong> Assistant</a>
       
       
       
@@ -150,28 +150,26 @@
           
           
             
-          
-            
               <li class="nav-item  active ">
-                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/"><i class="fas fa-home"></i> Home</a>
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/index-en.html"><i class="fas fa-home"></i> Home</a>
               </li>
             
           
             
               <li class="nav-item ">
-                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/examples.html"><i class="fas fa-folder-open"></i> Exemplos</a>
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/examples-en.html"><i class="fas fa-folder-open"></i> Examples</a>
               </li>
             
           
             
               <li class="nav-item ">
-                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/study.html"><i class="fas fa-book"></i> Notas de estudo</a>
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/study-en.html"><i class="fas fa-book"></i> Study notes</a>
               </li>
             
           
             
               <li class="nav-item ">
-                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/PGC.html"><i class="fas fa-graduation-cap"></i> PGC</a>
+                <a class="nav-link" href="http://localhost:4000/laboratory-assistant/PGC-en.html"><i class="fas fa-graduation-cap"></i> PGC</a>
               </li>
             
           
@@ -182,12 +180,12 @@
               <input type="radio" name="options" id="Language" disabled><i class="fas fa-language"></i> Language
             </label>
             
-            <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="Brazilian Portuguese" autocomplete="off" checked="" onclick="javascript:window.location.href='http://localhost:4000/laboratory-assistant/index.html'; return false;"> PT-BR
+            <label class="btn btn-secondary ">
+              <input type="radio" name="options" id="Brazilian Portuguese" autocomplete="off"  onclick="javascript:window.location.href='http://localhost:4000/laboratory-assistant/index.html'; return false;"> PT-BR
             </label>
 
-            <label class="btn btn-secondary ">
-              <input type="radio" name="options" id="United States English" autocomplete="off"  onclick="javascript:window.location.href='http://localhost:4000/laboratory-assistant/index-en.html'; return false;"> EN-US
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="United States English" autocomplete="off" checked="" onclick="javascript:window.location.href='http://localhost:4000/laboratory-assistant/index-en.html'; return false;"> EN-US
             </label>
           </div>
         </div>
@@ -201,10 +199,10 @@
     <div class="container" style="padding-top: 120px; padding-bottom: 60px">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title content-title text-center">Assistente de Laboratório</h1>
+          <h1 class="card-title content-title text-center">Laboratory Assistant</h1>
           <div style="padding-top: 40px">
             <p>
-  Página desenvolvida para mostrar a possibilidade de aplicação do algoritmo SymTree para Regressão Simbólica com baixo custo computacional. Essa ferramenta pode ser utilizada como auxiliar de laboratórios didáticos em que são feitos experimentos de mensuração para verificar relações vistas em sala de aula. A tecnologia utilizada é a linguagem JavaScript e, portanto, executa o algoritmo no próprio navegador do usuário. Experimente!
+  This page was developed to show the possibility of applying the SymTree algorithm for symbolic regression with low computational cost. This tool can be used as an assistant to teaching laboratories in which measurement experiments are carried out to verify the visualizations seen in the classroom. The technology created was written in JavaScript language and, therefore, runs the algorithm in the user's own browser. Try it!
 </p>
 
 <!--Como utilizar a ferramenta online-->
@@ -212,7 +210,7 @@
   <h5 class="card-header">
     <a data-toggle="collapse" href="#how-to-body" aria-expanded="true" aria-controls="how-to-body" id="how-to-header" class="collapsed d-block">
       <i class="fa fa-chevron-down" style="float: right"></i>
-      Como utilizar a ferramenta online?
+      How to use the online tool?
     </a>
   </h5>
   <div id="how-to-body" class="collapse" aria-labelledby="how-to-header">
@@ -220,21 +218,21 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h5><strong>1 - Digite os dados</strong></h5>
+            <h5><strong>1 - Enter the data</strong></h5>
             <p>
-              Os dados de entrada podem ser digitados ou carregados através de um arquivo .csv. Cada linha da entrada devem primeiro conter as variáveis do problema e, em seguida, a variável de medição: x1, x2, ...,y. Opcionalmente, a primeira linha pode conter os nomes das variáveis (clique na caixa correspondente para ativar essa opção);
+              The input data can be typed or loaded through a .csv file. All input lines must first contain the input variables and then the measurement variable: x1, x2, ..., y. Optionally, the first line can contain the labels of the variables (click on the corresponding box to activate this option);
             </p>
           </div>
           <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h5><strong>2 - Escolha e execute um algoritmo</strong></h5>
+            <h5><strong>2 - Choose and run one algorithm</strong></h5>
             <p>
-              Escolha o algoritmo a ser executado. Os algoritmos por padrão apresentam configurações para uma boa performance em navegadores, mas é possível modificar os seus parâmetros clicando na engrenagem na área de <em>execução e resultados</em>;
+              Choose the algorithm to be executed. The algorithms by default present settings for good performance in browsers, but it is possible to modify their parameters by clicking on the gear in the <em> execution and results </em> area;
             </p>
           </div>
           <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h5><strong>3 - Analise o resultado</strong></h5>
+            <h5><strong>3 - Analyze the result</strong></h5>
             <p>
-              Após finalizar o processamento, o site irá exibir os resultados da regressão simbólica, que podem ser manipulados. Para um melhor entendimento, a página <a href="http://localhost:4000/laboratory-assistant/study.html"">notas de estudo</a> fornece uma explicação da ideia da ferramenta desenvolvida.
+              After completing the processing, the site will display the results of the symbolic regression, which can be manipulated. For a better understanding, the page <a href="http://localhost:4000/laboratory-assistant/study.html""> study notes </a> provides an explanation of the developed tool.
             </p>
           </div>
         </div>
@@ -247,21 +245,21 @@
 <div class="card border-secondary" style="margin-top: 20px; margin-bottom: 20px">
   <h5 class="card-header">
     <a>
-      Entrada de dados
+      Data input
     </a>
   </h5>
   <div class="card-body">
     <p>
-      Os dados podem ser digitados manualmente, ou você pode fazer o upload de um arquivo <strong>.csv</strong> contendo seus dados. Caso queira, a primeira linha pode ser usada para nomear as variáveis. No site há uma página mais elaborada sobre os <a href=".\input-examples.html">dados de entrada</a>, com exemplos para testar o algoritmo. O site manterá guardado o último conjunto de dados que foi carregado com êxito até o final da sessão.
+      The data can be entered manually, or you can upload a <strong> .csv </strong> file containing your data. If desired, the first line can be used to label the variables. On this website, there is a more elaborate page about the <a href=".\input-examples.html">input data</a>, with examples to test the algorithm. The website will keep the last data set that was successfully loaded until the end of the section.
     </p>
     <div class="container">
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-            <h5><strong>Entrada manual de dados</strong></h5>
-            <textarea style="max-width: 100%; min-width:100%" class="form-control" rows="8" placeholder="Digite os dados aqui. Um ponto em cada linha, separados por vírgulas, espaços ou tabulações" id="my-manualinput"></textarea>
+            <h5><strong>Manual data entry</strong></h5>
+            <textarea style="max-width: 100%; min-width:100%" class="form-control" rows="8" placeholder="Enter the data here. One point on each line, separated by commas, spaces or tabs" id="my-manualinput"></textarea>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-            <h5><strong>Upload de arquivo local</strong></h5>
+            <h5><strong>Local file upload</strong></h5>
             <span class="btn btn-default btn-file">
                 <input type="file" class="form-control-file" id="my-csvinput" accept=".csv"/>
             </span><hr>
@@ -270,23 +268,23 @@
     </div>
     <p class="text-center" style="margin-top:20px">
       <input type="checkbox" id="labeled" value="true">
-      <label for="labeled">Usar a primeira linha da entrada como rótulo?</label>
+      <label for="labeled">Use the first line as label?</label>
     </p>
     <div class="container">
       <div class="row">
           <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
             <p>
-              <button type="button" class="btn btn-secondary btn-block" onclick="performUpload('my-manualinput', 'manual');">Usar valores digitados</button>
+              <button type="button" class="btn btn-secondary btn-block" onclick="performUpload('my-manualinput', 'manual');">Use typed values</button>
             </p>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
             <p>
-              <button type="button" class="btn btn-secondary btn-block" onclick="performUpload('my-csvinput', 'csv');">Usar arquivo enviado</button>
+              <button type="button" class="btn btn-secondary btn-block" onclick="performUpload('my-csvinput', 'csv');">Use uploaded file</button>
             </p>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
             <p>
-              <button type="button" class="btn btn-secondary btn-block" onclick="get_example('my-manualinput', 'manual')">Escolhi um examplo</button>
+              <button type="button" class="btn btn-secondary btn-block" onclick="get_example('my-manualinput', 'manual')">I picked an example</button>
             </p>
           </div>
       </div>
@@ -299,9 +297,9 @@
 <div class="card border-secondary" style="margin-top: 20px; margin-bottom: 20px">
   <h5 class="card-header">
     <a>
-      Execução e resultados 
+      Execution and results 
     </a>
-    <a data-toggle="collapse" href="#configs-body" aria-expanded="true" aria-controls="configs-body" id="configs-header" class="collapsed d-block float-right"><i class="fas fa-cogs"></i> Opções</a>
+    <a data-toggle="collapse" href="#configs-body" aria-expanded="true" aria-controls="configs-body" id="configs-header" class="collapsed d-block float-right"><i class="fas fa-cogs"></i> Options</a>
     <div id="configs-body" class="collapse" aria-labelledby="configs-header">
       <hr>
       <div class="container">
@@ -310,48 +308,48 @@
             <p>SymTree (Symbolic Tree)</p>
             <div class="form-row">
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="symtree-iteractions">Iterações</label>
+                <label class="mr-sm-2" for="symtree-iteractions">Iteractions</label>
                 <select class="custom-select mr-sm-2" id="symtree-iteractions">
                   <option value="1">1</option>
-                  <option value="2">2 (melhor performance)</option>
+                  <option value="2">2 (best performance)</option>
                   <option value="3">3</option>
-                  <option value="4" selected>4  (padrão)</option>
+                  <option value="4" selected>4 (default)</option>
                 </select>
               </div>
               <div class="col-auto my-1">
                 <label class="mr-sm-2" for="symtree-threshold">Threshold</label>
                 <select class="custom-select mr-sm-2" id="symtree-threshold">
                   <option value="0.005">0.005</option>
-                  <option value="0.05" selected>0.05 (padrão)</option>
+                  <option value="0.05" selected>0.05 (default)</option>
                   <option value="0.10">0.10</option>
                   <option value="0.10">0.20</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="symtree-inv">Iteração de início da inversa</label>
+                <label class="mr-sm-2" for="symtree-inv">Inverse interaction start</label>
                 <select class="custom-select mr-sm-2" id="symtree-inv">
                   <option value="1">1</option>
-                  <option value="2" selected>2 (padrão)</option>
+                  <option value="2" selected>2 (default)</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="symtree-transf">Iteração de início da transformação</label>
+                <label class="mr-sm-2" for="symtree-transf">Transformation interaction start</label>
                 <select class="custom-select mr-sm-2" id="symtree-transf">
                   <option value="1">1</option>
-                  <option value="2" selected>2 (padrão)</option>
+                  <option value="2" selected>2 (default)</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="symtree-stopscore">Score de parada</label>
+                <label class="mr-sm-2" for="symtree-stopscore">Stop Score</label>
                 <select class="custom-select mr-sm-2" id="symtree-stopscore">
                   <option value="0.75">0.75</option>
                   <option value="0.9">0.90</option>
-                  <option value="0.99" selected>0.99 (padrão)</option>
-                  <option value="1.0">Sem critério de parada</option>
+                  <option value="0.99" selected>0.99 (defaul)</option>
+                  <option value="1.0">No stop score</option>
                 </select>
               </div>
             </div>
@@ -361,52 +359,52 @@
             <p>IT-LS (Interaction-Transformation Local Search)</p> 
             <div class="form-row">
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="itls-popsize">Tamanho da população</label>
+                <label class="mr-sm-2" for="itls-popsize">Population size</label>
                 <select class="custom-select mr-sm-2" id="itls-popsize">
-                  <option value="50">50 (melhor performance)</option>
+                  <option value="50">50 (best performance)</option>
                   <option value="100">100</option>
-                  <option value="150" selected>150 (padrão)</option>
+                  <option value="150" selected>150 (default)</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="itls-startsize">Tamanho inicial das expressões</label>
+                <label class="mr-sm-2" for="itls-startsize">Initial size of expressions</label>
                 <select class="custom-select mr-sm-2" id="itls-startsize">
-                  <option value="1" selected>1 (padrão)</option>
+                  <option value="1" selected>1 (defaul)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="itls-endsize">Crescimento permitido das expressões</label>
+                <label class="mr-sm-2" for="itls-endsize">Expressions allowed growth</label>
                 <select class="custom-select mr-sm-2" id="itls-endsize">
-                  <option value="0">Sem crescimento</option>
-                  <option value="3" selected>3 (padrão)</option>
+                  <option value="0">No growth</option>
+                  <option value="3" selected>3 (default)</option>
                   <option value="5">5</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="itls-expolim">Limite nos expoentes (na população inicial)</label>
+                <label class="mr-sm-2" for="itls-expolim">Exponent limits (on the initial population)</label>
                 <select class="custom-select mr-sm-2" id="itls-expolim">
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option value="3" selected>3 (padrão)</option>
+                  <option value="3" selected>3 (default)</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="itls-iteractions">Iterações</label>
+                <label class="mr-sm-2" for="itls-iteractions">Iteractions</label>
                 <select class="custom-select mr-sm-2" id="itls-iteractions">
                   <option value="10">10</option>
                   <option value="25">25</option>
-                  <option value="50" selected>50 (padrão)</option>
+                  <option value="50" selected>50 (default)</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="itls-stopscore">Score de parada</label>
+                <label class="mr-sm-2" for="itls-stopscore">Stop score</label>
                 <select class="custom-select mr-sm-2" id="itls-stopscore">
                   <option value="0.75">0.75</option>
                   <option value="0.9">0.90</option>
-                  <option value="0.995" selected>0.995 (padrão)</option>
-                  <option value="1.0">Sem critério de parada</option>
+                  <option value="0.995" selected>0.995 (default)</option>
+                  <option value="1.0">No stop score</option>
                 </select>
               </div>
             </div>
@@ -416,60 +414,60 @@
             <p>IT-ES (Interaction-Transformation Evolution Strategies)</p>
             <div class="form-row">
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="ites-popsize">Tamanho da população</label>
+                <label class="mr-sm-2" for="ites-popsize">Population size</label>
                 <select class="custom-select mr-sm-2" id="ites-popsize">
-                  <option value="50">50 (melhor performance)</option>
+                  <option value="50">50 (best performance)</option>
                   <option value="100">100</option>
-                  <option value="150" selected>150 (padrão)</option>
+                  <option value="150" selected>150 (default)</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="ites-startsize">Tamanho inicial das expressões</label>
+                <label class="mr-sm-2" for="ites-startsize">Initial size of expressions</label>
                 <select class="custom-select mr-sm-2" id="ites-startsize">
-                  <option value="1" selected>1 (padrão)</option>
+                  <option value="1" selected>1 (default)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="ites-endsize">Crescimento permitido das expressões</label>
+                <label class="mr-sm-2" for="ites-endsize">Expressions allowed growth</label>
                 <select class="custom-select mr-sm-2" id="ites-endsize">
                   <option value="0">Sem crescimento</option>
-                  <option value="3" selected>3 (padrão)</option>
+                  <option value="3" selected>3 (default)</option>
                   <option value="5">5</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="ites-selecsize">Tamanho da seleção</label>
+                <label class="mr-sm-2" for="ites-selecsize">Offspring size</label>
                 <select class="custom-select mr-sm-2" id="ites-selecsize">
                   <option value="15">15</option>
                   <option value="25">25</option>
-                  <option value="50" selected>50 (padrão)</option>
+                  <option value="50" selected>50 (default)</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="ites-expolim">Limite nos expoentes</label>
+                <label class="mr-sm-2" for="ites-expolim">Exponents limits</label>
                 <select class="custom-select mr-sm-2" id="ites-expolim">
                   <option value="1">1</option>
                   <option value="2">2</option>
-                  <option value="3" selected>3 (padrão)</option>
+                  <option value="3" selected>3 (default)</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="ites-gens">Gerações</label>
+                <label class="mr-sm-2" for="ites-gens">Generations</label>
                 <select class="custom-select mr-sm-2" id="ites-gens">
                   <option value="15">15</option>
                   <option value="25">25</option>
-                  <option value="50" selected>50 (padrão)</option>
+                  <option value="50" selected>50 (default)</option>
                 </select>
               </div>
               <div class="col-auto my-1">
-                <label class="mr-sm-2" for="ites-stopscore">Score de parada</label>
+                <label class="mr-sm-2" for="ites-stopscore">Stop score</label>
                 <select class="custom-select mr-sm-2" id="ites-stopscore">
                   <option value="0.75">0.75</option>
                   <option value="0.9">0.90</option>
-                  <option value="0.995" selected>0.995 (padrão)</option>
-                  <option value="1.0">Sem critério de parada</option>
+                  <option value="0.995" selected>0.995 (default)</option>
+                  <option value="1.0">No stop score</option>
                 </select>
               </div>
             </div>
@@ -480,42 +478,42 @@
   </h5>
   <div class="card-body">
     <p>
-      Com os dados carregados, basta escolher um dos algorithmos abaixo. Também é possível ajustar os parâmetros do algoritmo clicando na engrenagem acima (isso pode melhorar o tempo de execução, ao custo de realizar uma busca mais simples. O primeiro parâmetro é o que mais tem impacto no tempo de execução, e uma sugestão é indicada).
+      With the data loaded, choose one of the algorithms below. It is also possible to adjust the parameters of the algorithm by clicking on the above gear (this can improve the execution time, at the cost of performing a simpler search. The first parameter is the one that most impacts the execution time, and a suggestion is indicated).
     </p>
     <div class="container">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <p>
-            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('SymTree')">Algoritmo SymTree (Symbolic Tree)</button>
+            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('SymTree')">SymTree Algorithm(Symbolic Tree)</button>
           </p>
         </div>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <p>
-            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('ITLS')">Algoritmo IT-LS (Interaction-Transformation Local Search)</button>
+            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('ITLS')">IT-LS Algorithm (Interaction-Transformation Local Search)</button>
           </p>            
         </div>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <p>
-            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('ITES')">Algoritmo IT-ES (Interaction-Transformation Evolution Strategies)</button>
+            <button type="button" class="btn btn-secondary btn-block" onclick="performRegression('ITES')">IT-ES Algorithm (Interaction-Transformation Evolution Strategies)</button>
           </p>              
         </div>
       </div>
     </div>
 
     <div id="results-div" style="display: none;">
-      <h5>Resultado:</h5>
+      <h5>Results:</h5>
       <div id="results-log"><pre></pre></div>
-      <p>Obtido uma função simbólica, podemos entender um pouco mais sobre ela inspecionando o efeito que cada termo tem no comportamento final. Verifique o comportamento dos termos (ou combinações deles) em relação a variável-alvo ou em relação a uma das variáveis de entrada, selecionando aqueles que gostaria de incluir na expressão final.</p>
+      <p> After obtained a symbolic function, we can understand a little more about it by inspecting the effect that each term has on the final behavior. Check the behavior of the terms (or combinations of them) in relation to the target variable or in relation to one of the input variables, selecting those that you would like to include in the final expression.</p>
 
       <p>
-        Primeiro, selecione os termos para compor a nova expressão. Após isso, temos duas opções de gráficos: <em>i)</em> plotar o valor predito versus o valor real - quanto mais próximo de uma reta o gráfico estiver, melhor sua capacidade de predizer valores; <em>ii)</em> plotar o valor predito versus uma variável - isso permite ver como o comportamento do gráfico muda quando todas as variáveis são fixadas, e apenas uma é variada (esse gráfico será feito no intervalo dos valores passados).
+        First, select the terms to compose the new expression. After that, we have two plot options: <em> i) </em> predicted value versus the real value - the closer to a line the graph is, the better its ability to predict values; <em> ii) </em> predicted value versus a variable - this allows you to see how the expression's behavior changes when all variables are fixed, and only one is varied (this plot will be limited to the range of used values).
       </p>
 
       <div class='row'>
         <div class='col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12' id='func-composer'>
           <div id="graphics-control"></div>
-          <button type='button' class='btn btn-secondary btn-lg btn-block' onclick='update_plot()'>Plotar grafico T <i>x</i> Y</button><br>
-          <button type='button' class='btn btn-secondary btn-lg btn-block' onclick='update_variable_plot()'>Plotar grafico T <i>x</i> X</button>
+          <button type='button' class='btn btn-secondary btn-lg btn-block' onclick='update_plot()'>Plot T <i>x</i> Y</button><br>
+          <button type='button' class='btn btn-secondary btn-lg btn-block' onclick='update_variable_plot()'>Plot T <i>x</i> X</button>
         </div>
         <div class='col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12'>
           <div  id='func-ploter' style="width: 100%; height: calc(100%-50px); min-height: 500px;"></div>
@@ -532,47 +530,47 @@
     <h5 class="card-header">
       <a data-toggle="collapse" href="#quality-body" aria-expanded="true" aria-controls="quality-body" id="quality-header" class="d-block">
         <i class="fa fa-chevron-down" style="float: right"></i>
-        Os resultados obtidos foram satisfatórios?
+        Were the results obtained satisfactory?
       </a>
     </h5>
     <div id="quality-body" class="show collapse" aria-labelledby="quality-header">
       <div class="card-body">
         <p>
-          A regressão simbólica é uma tarefa difícil, por ter uma quantidade muito grande de parâmetros para ajustar - desde os coeficientes livres até a própria forma da função. No nosso caso, pode ser que a equação real não possa ser representada, os dados sejam muito ruidosos ou a quantidade de dados necessária seja maior do que a utilizada. Ainda assim, o algoritmo consegue ser capaz de apresentar bons resultados em diversos cenários. 
+          Symbolic regression is an difficult task, as it has a very large number of parameters to adjust - the free coefficients, but also the form of the function itself. In our case, it may be that: the real equation cannot be represented, the data is very noisy, or the amount of data needed is greater than that used. Even so, the algorithm is able to present good results in several scenarios.
         </p>
         <p>
-          Para qualificar as expressões criadas pelos algoritmos, usamos o <em>score</em>. O score é uma classificação para a expressão, de acordo com o quão bem esta expressão se ajusta ao DATASET de entrada, e varia de 0 a 1. O score é calculado por:
+          To qualify the expressions finded by the algorithm, we use the <em> score </em>. The score is a classification for the expression, according to how well this expression fits the input data, and ranges from 0 to 1. The score is calculated by:
         </p>
         <p>
           $$\small{ score = \frac{1}{MAE} }$$
         </p>
         <p>
-            Onde o MAE (desvio médio absoluto) é igual ao somatório das diferenças entre os valores da variável dependente yi e os valores calculados pela expressão para Xi: 
+          Where the MAE (mean absolute error) is equal to the sum of the differences between the values of the dependent variable yi and the values predicted by using the expression for Xi:
         </p>
         <p>
           $$\small{ Mean Absolute Error\ (MAE)  = \sum_{i=1}^{n}\frac{|y_{i} - \widehat{f}(X_{i})|}{n} }$$
         </p>
         <p>
-          Onde n é o tamanho da base de dados utilizada.
+          Where n is the size of the database used.
         </p>
         <div class="container">
           <div class="row">
             <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h5><strong>Algoritmo SymTree</strong></h5>
+                <h5><strong>SymTree Algorithm</strong></h5>
                 <p>
-                  Este algoritmo inicia sua busca a partir de uma solução representando uma regressão linear. A cada iteração ele aplica as operações de interação entre as variáveis e transformação, gerando funções incrementalmente mais complexas. Mais detalhes podem ser vistos no seu <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf">artigo original</a>.
+                  This algorithm starts its search from a solution representing a linear regression. At each iteration he applies the operations of interaction between variables and transformation, generating incrementally more complex functions. More details can be seen in the <a href="https://folivetti.github.io/files/InfoScienceITSR.pdf"> original paper </a>.
                 </p>
             </div>
             <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h5><strong>Algoritmo IT-LS</strong></h5>
+                <h5><strong>IT-LS Algorithm</strong></h5>
                 <p>
-                  O algoritmo funciona criando uma população inicial de expressões aleatórias e selecionando a melhor dentre elas. Após isso, executa uma busca local na equação, mudando ou as funções não-lineares ou os expoentes da equação, repetindo o processo até que não exista uma modificação que melhore ainda mais o score da equação. Esse algoritmo é executado até no máximo 50 iterações.
+                  The algorithm works by creating an initial population of random expressions and selecting the best one among them. After that, it performs a local search in the equation, changing either the non-linear functions or the exponents of the equation, repeating the process until there is no modification that improves the equation score even more. This algorithm runs up to a maximum of 50 iterations.
                 </p>
             </div>
             <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h5><strong>Algoritmo IT-ES</strong></h5>
+                <h5><strong>IT-ES Algorithm</strong></h5>
                 <p>
-                  O algoritmo funciona criando uma população de expressões aleatórias, e então executa um algoritmo de Estratégia Evolutiva \(\small ES-(\mu, \lambda)\). Esse algoritmo foi executado apenas com mutação, \(\small \mu=150\), \(\small \lambda=45\) e 150 iterações. Uma versão mais elaborada desse algoritmo foi posteriormente formalizada, e <a href="https://arxiv.org/pdf/1902.03983.pdf">o artigo apresentando a nova proposta do algoritmo pode ser encontrado aqui</a>.
+                  The algorithm works by creating a population of random expressions, and then executes an Evolutionary Strategy \(\small ES - (\mu, \lambda) \) algorithm. This algorithm was performed only with mutation, with constrains for \(\small \mu = 150 \), \(\small \lambda = 50 \), and 150 iterations. A more elaborate version of this algorithm was later formalized, and <a href="https://arxiv.org/pdf/1902.03983.pdf"> the paper presenting the new proposal for the algorithm can be found here </a>.
                 </p>
             </div>
           </div>
@@ -587,19 +585,19 @@
   <h5 class="card-header">
     <a data-toggle="collapse" href="#about-body" aria-expanded="true" aria-controls="about-body" id="about-header" class="collapsed d-block">
       <i class="fa fa-chevron-down" style="float: right"></i>
-      Sobre
+      About
     </a>
   </h5>
   <div id="about-body" class="collapse" aria-labelledby="about-header">
     <div class="card-body">
       <p>
-        A Regressão Simbólica tem por objetivo encontrar a função geradora de uma base de dados amostrais. Ela difere de outros tipos de regressão pois não está restrito a uma forma fixa como em métodos de regressão linear, polinomial e redes neurais. Normalmente, a Regressão Simbólica é feita através de Algoritmos Evolutivos (ex.: Programação Genética), mas esses costumam ser computacionalmente custosos, mesmo em bases de dados de baixa dimensão.
+        Symbolic Regression aims to find the generating function of a sample database. It differs from other types of regression by not restricting the search to a fixed form as in linear, polynomial and neural network regression methods. Normally, Symbolic Regression is done through Evolutionary Algorithms (eg, Genetic Programming), but these tend to be computationally costly, even in small-scale databases.
       </p>
       <p>
-        Este projeto tem como objetivo mostrar o potencial do algoritmo SymTree para dados de baixa dimensão e gerados por funções conhecidas da Física, Matemática e Engenharia.
+        This project aims to show the potential of the SymTree algorithm for small dimensional data, applying it to known functions of Physics, Mathematics and Engineering.
       </p>
       <p>
-        Esse projeto foi desenvolvido por Guilherme Aldeia como parte de sua iniciação científica orientado pelo prof. Fabricio Olivetti de França na Universidade Federal do ABC.
+        This project was developed by Guilherme Aldeia as part of his scientific initiation guided by Prof. Dr. Fabricio Olivetti de França at the Federal University of ABC.
       </p>
     </div>
   </div>
@@ -619,7 +617,7 @@
           <div class="container">
 
   <div class="text-justify">
-      <h1 class="text-center"> Contato <br></h1>
+      <h1 class="text-center"> Contact <br></h1>
   </div>
 
   <div class="content-text" style="padding-bottom: 0px !important;">
@@ -628,7 +626,7 @@
 
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <p>
-               <strong>Orientador:</strong> <br>
+               <strong>Mentor:</strong> <br>
               <i class="fas fa-user-circle"></i> Prof. Dr. Fabrício Olivetti de França<br>
               <i class="fas fa-envelope"></i> <em>folivetti@ufabc.edu.br</em>
             </p>
@@ -636,7 +634,7 @@
 
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <p>
-               <strong>Discente:</strong> <br>
+               <strong>Mentee:</strong> <br>
               <i class="fas fa-user-circle"></i> Guilherme Seidyo Imai Aldeia<br>
               <i class="fas fa-envelope"></i> <em>guilherme.aldeia@ufabc.edu.br</em>
             </p>
