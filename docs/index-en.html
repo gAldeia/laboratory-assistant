@@ -348,7 +348,7 @@ order: 1
           To qualify the expressions finded by the algorithm, we use the <em> score </em>. The score is a classification for the expression, according to how well this expression fits the input data, and ranges from 0 to 1. The score is calculated by:
         </p>
         <p>
-          $$\small{ score = \frac{1}{MAE} }$$
+          $$\small{ score = \frac{1}{(1 + MAE)} }$$
         </p>
         <p>
           Where the MAE (mean absolute error) is equal to the sum of the differences between the values of the dependent variable yi and the values predicted by using the expression for Xi:
