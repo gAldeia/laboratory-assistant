@@ -176,8 +176,8 @@ function get_composed_expr(){
         throw showMessage("results-notification", "Você não selecionou nenhum termo para compor uma expressão! <br><small><i>You have not selected any terms to compose an expression!</i></small>");
 
     let withSelected = choosen.reduce((newIT, term) => composeIT(newIT, term), {
-        terms: [],
-        funcs: [],
+        terms:  [],
+        funcs:  [],
         coeffs: [],
         length: 0
     });
