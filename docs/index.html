@@ -348,7 +348,7 @@ order: 1
           Para qualificar as expressões criadas pelos algoritmos, usamos o <em>score</em>. O score é uma classificação para a expressão, de acordo com o quão bem esta expressão se ajusta ao DATASET de entrada, e varia de 0 a 1. O score é calculado por:
         </p>
         <p>
-          $$\small{ score = \frac{1}{MAE} }$$
+          $$\small{ score = \frac{1}{(1 + MAE)} }$$
         </p>
         <p>
             Onde o MAE (desvio médio absoluto) é igual ao somatório das diferenças entre os valores da variável dependente yi e os valores calculados pela expressão para Xi: 
